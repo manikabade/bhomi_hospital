@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin\Doctor;
+use App\Models\Admin\News;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,7 +24,15 @@ class HomeController extends Controller
     {
         $data = [] ;
         $data['_doctors'] = Doctor::active()->get();
-
         return view('welcome',compact('data') );
+    }
+
+    public function newsDetail($id)
+    {
+        $news = News::where('id',$id)->first();
+
+        if ($news)
+            return view('news-details',compact('news'));
+        return abort(404);
     }
 }
