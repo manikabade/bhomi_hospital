@@ -24,6 +24,7 @@ class HomeController extends Controller
     {
         $data = [] ;
         $data['_doctors'] = Doctor::active()->get();
+        $data['_news'] = News::active()->get();
         return view('welcome',compact('data') );
     }
 

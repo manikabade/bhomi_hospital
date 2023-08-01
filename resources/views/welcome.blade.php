@@ -277,16 +277,16 @@
                     <h2>Latest News</h2>
                 </div>
             </div>
-
+            @forelse($data['_news'] as $newses)
             <div class="col-md-4 col-sm-6">
                 <!-- NEWS THUMB -->
                 <div class="news-thumb wow fadeInUp" data-wow-delay="0.4s">
-                    <a href="news-detail.html">
+                    <a href="news/{{$newses->id}}">
                         <img src="images/covid-19.jpg" class="img-responsive" alt="">
                     </a>
                     <div class="news-info">
-                        <span>March 08, 2018</span>
-                        <h3><a href="news-detail.html">COVID-19: Global Updates and Impact</a></h3>
+                        <span>{{$newses->created_at->format('Y','m','d')}}</span>
+                        <h3><a href="news/{{$newses->id}}">{{$newses->title}}</a></h3>
                         <p>It is not yet clear whether Omicron is more easily spread from person to person compared to other variants, or whether infection with it causes more severe disease..</p>
                         <div class="author">
                             <img src="images/khanal.png" class="img-responsive" alt="">
@@ -298,50 +298,8 @@
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-4 col-sm-6">
-                <!-- NEWS THUMB -->
-                <div class="news-thumb wow fadeInUp" data-wow-delay="0.6s">
-                    <a href="news-detail1.html">
-                        <img src="images/towfiqu-barbhuiya-xs2rdwVoqks-unsplash (1).jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="news-info">
-                                   <span>Tuesday Jul 25, 2023
-                                   </span>
-                        <h3><a href="news-detail1.html">Growing fast food culture entrapping Nepalis</a></h3>
-                        <p>The drastic shift of Nepali families from cultivation and consumption of nutritious and organic foods to quick ready-to-eat meals started in the 20th century, growing even more in the 21st century..............</p>
-                        <div class="author">
-                            <img src="images/drs.png" class="img-responsive" alt="">
-                            <div class="author-info">
-                                <h5>Dr.Bhadra</h5>
-                                <p>General Director</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6">
-                <!-- NEWS THUMB -->
-                <div class="news-thumb wow fadeInUp" data-wow-delay="0.8s">
-                    <a href="news-detail11.html">
-                        <img src="images/smoking.jpg " class="img-responsive" alt="">
-                    </a>
-                    <div class="news-info">
-                        <span>January 27, 2023</span>
-                        <h3><a href="news-detail11.html">Nepal’s tobacco consumption defies awareness initiatives as smokers turn blind eye</a></h3>
-                        <p>People smoking, chewing tobacco, and more recently vaping in public are some of the common scenes in Nepal.</p>
-                        <div class="author">
-                            <img src="images/dr.png" class="img-responsive" alt="">
-                            <div class="author-info">
-                                <h5>Rajesh Manandhar</h5>
-                                <p>Online Advertising</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+                @empty
+            @endforelse
         </div>
     </div>
 </section>
