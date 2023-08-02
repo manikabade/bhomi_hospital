@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('author');
             $table->date('date');
             $table->string('image');
+            $table->text('excerpt')->nullable();
             $table->boolean('status')->default(0);
             $table->timestamps();
         });

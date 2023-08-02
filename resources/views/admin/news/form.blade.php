@@ -63,6 +63,20 @@
             @enderror
         </div>
     </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="excerpt">Excerpt</label>
+            {!! Form::textarea('excerpt',$data['row']->excerpt??null,[
+                'class'=> $errors->has('excerpt')?'form-control is-invalid':'form-control',
+                    'placeholder'=>'Enter Excerpt',
+               ]) !!}
+            @error('excerpt')
+            <span class="error invalid-feedback">
+                   {{ $message }}
+                </span>
+            @enderror
+        </div>
+    </div>
 
     <div class="col-sm-12">
         <div class="form-group">

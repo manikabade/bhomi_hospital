@@ -29,6 +29,7 @@ class UpdateNewsValidation extends FormRequest
             'designation_id'                => ['required','designation_id_validation'],
             'date'                          => ['required','date'],
             'main_photo'                    => ['required'],
+            'excerpt'                       => ['nullable'],
             'status'                        => ['nullable', 'boolean'],
         ];
     }

@@ -37,7 +37,7 @@ class UpdateAppointmentValidation extends FormRequest
             'appointment_date'             => ['required','date'],
             'time_for_appointment'         => ['required','date_format:H:i:s'],
 //           'time_for_appointment'         => ['required','date_format:H:i'],
-            'main_photo'                    => ['required'],
+            'main_photo'                    => ['nullable'],
             'status'                       => ['nullable', 'boolean'],
         ];
     }
