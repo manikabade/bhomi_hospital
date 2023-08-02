@@ -107,7 +107,7 @@
 
                         <div class="media">
                             <div class="media-object pull-left">
-                                <a href="#"><img src="images/covid-logo.png" class="img-responsive" alt=""></a>
+                                <a href="#"><img src="{{asset('front/images/covid-logo.png')}}" class="img-responsive" alt=""></a>
                             </div>
                             <div class="media-body">
                                 <h4 class="media-heading"><a href="#">{{$news->title}}</a></h4>
@@ -116,7 +116,7 @@
 
                         <div class="media">
                             <div class="media-object pull-left">
-                                <a href="#"><img src="images/covid-logo.png" class="img-responsive" alt=""></a>
+                                <a href="#"><img src="{{asset('front/images/covid-logo.png')}}"class="img-responsive" alt=""></a>
                             </div>
                             <div class="media-body">
                                 <h4 class="media-heading"><a href="#">symptoms of Covid-19</a></h4>
@@ -144,7 +144,7 @@
                     </div>
                     <div class="symptoms-covid">
                         <h3>Symptoms </h3>
-                        <img src="images/covid-symp.png" alt="" height="300px" width="395px">
+                        <img src="{{asset('front/images/covid-symp.png')}}" alt="" height="300px" width="395px">
                     </div>
                 </div>
             </div>
@@ -160,7 +160,7 @@
                         Some people, especially those who had severe COVID-19, experience multiorgan effects or autoimmune conditions with symptoms lasting weeks, months, or even years after COVID-19 illness. Multi-organ effects can involve many body systems, including the heart, lung, kidney, skin, and brain. As a result of these effects, people who have had COVID-19 may be more likely to develop new health conditions such as diabetes, heart conditions, blood clots, or neurological conditions compared with people who have not had COVID-19.</p>
                     <blockquote> "It has affected our health, our economy, our everyday activities, and caused devastation through the loss of so many lives. While Covid-19 remains a global health threat, we have learned to live with it and return to normal life".</p>
                         <div>
-                            <img src="/images/covid-impacts.png" alt="" height="300px">
+                            <img src="{{asset('front/images/covid-impacts.png')}}" alt="" height="300px">
                         </div>
                         <p> An app is also useful for tracking revisits and improving clinic-patient communication. An app is also useful for tracking revisits and improving clinic-patient communication. An app is also useful for tracking revisits and improving clinic-patient communication.</p>
                         <div class="news-social-share">
@@ -190,7 +190,7 @@
                     <h4 class="wow fadeInUp" data-wow-delay="0.4s">Latest News</h4>
                     <div class="latest-stories">
                         <div class="stories-image">
-                            <a href="#"><img src="images/news-image.jpg" class="img-responsive" alt=""></a>
+                            <a href="#"><img src="{{asset('front/images/news-image.jpg')}}" class="img-responsive" alt=""></a>
                         </div>
                         <div class="stories-info">
                             <a href="#"><h5>Growing fast food culture</h5></a>
@@ -200,7 +200,7 @@
 
                     <div class="latest-stories">
                         <div class="stories-image">
-                            <a href="#"><img src="images/news-image.jpg" class="img-responsive" alt=""></a>
+                            <a href="#"><img src="{{asset('front/images/news-image.jpg')}}" class="img-responsive" alt=""></a>
                         </div>
                         <div class="stories-info">
                             <a href="#"><h5>Nepal’s tobacco consumption</h5></a>

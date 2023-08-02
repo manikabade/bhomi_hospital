@@ -22,9 +22,10 @@ return new class extends Migration
             $table->integer('age');
             $table->string('patient_address');
             $table->string('blood_group');
-            $table->date('appointment_date');
-            $table->time('time_for_appointment');
-            $table->string('image');
+            $table->date('appointment_date')->unique();
+            $table->time('time_for_appointment')->unique();
+            $table->string('image')->nullable();
+            $table->longText('message')->nullable();
             $table->boolean('status')->default(0);
             $table->timestamps();
         });

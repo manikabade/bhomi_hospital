@@ -23,6 +23,7 @@ class Appointment extends BaseModel
         'appointment_date',
         'time_for_appointment',
         'image',
+        'message',
         'status',
     ];
     public function specialist(): BelongsTo

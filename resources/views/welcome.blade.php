@@ -67,7 +67,7 @@
             </button>
 
             <!-- lOGO TEXT HERE -->
-            <a href="index.html" class="navbar-brand">Bhomi <i class="fa fa-h-square"></i>ospital</a>
+            <a href="index.html" class="navbar-brand">Bhomi<i class="fa fa-h-square"></i>ospital</a>
         </div>
 
         <!-- MENU LINKS -->
@@ -187,7 +187,7 @@
 
             <div class="col-md-6 col-sm-6">
                 <div class="about-info">
-                    <h2 class="wow fadeInUp" data-wow-delay="0.6s">About Bhomi <i class="fa fa-h-square"></i>Hospital</h2>
+                    <h2 class="wow fadeInUp" data-wow-delay="0.6s">About Bhomi <i class="fa fa-h-square"></i>ospital</h2>
                     <div class="wow fadeInUp" data-wow-delay="0.8s">
                         <p>Bhomi hospital is the clinic that located in banepa.It serves as a primary healthcare center, providing medical services and treatments to the local community and local areas.The hospital offers a range of healthcare services, including general medical consultations, outpatient care, emergency care, and basic diagnostic services. It may also have specialized departments or units, such as maternity, pediatrics, or dental services, depending on its facilities and resources.
                         </p>
@@ -252,15 +252,15 @@
     <div class="container">
         <div class="news-categories" data-wow-delay="0.4s">
             <h2>Categories</h2>
-            <img src="images/categories 1.png" height="40px" width="40px">
+            <img src="{{asset('front/images/categories 1.png ')}}"height="40px" width="40px">
             <li><a href="#"><i class="fa fa-angle-right"></i> Dermatology</a></li>
-            <img src="images/categories22.png" height="40px" width="40px">
+            <img src="{{asset('front/images/categories22.png')}}" height="40px" width="40px">
 
             <li><a href="#"><i class="fa fa-angle-right"></i> Neurology</a></li>
-            <img src="images/categories 3.png" height="40px" width="40px">
+            <img src= "{{asset('front/images/categories 3.png')}}" height="40px" width="40px">
 
             <li><a href="#"><i class="fa fa-angle-right"></i>Gynecology</a></li>
-            <img src="images/categories 4.png" height="40px" width="40px">
+            <img src="{{asset('front/images/categories 4.png')}}" height="40px" width="40px">
 
             <li><a href="#"><i class="fa fa-angle-right"></i> Nephrologist</a></li>
         </div>
@@ -282,17 +282,19 @@
                 <!-- NEWS THUMB -->
                 <div class="news-thumb wow fadeInUp" data-wow-delay="0.4s">
                     <a href="news/{{$newses->id}}">
-                        <img src="images/covid-19.jpg" class="img-responsive" alt="">
+                        <img src="{{asset('images/news')}}/{{$newses->image}}" class="img-responsive" alt="">
                     </a>
                     <div class="news-info">
                         <span>{{$newses->created_at->format('Y','m','d')}}</span>
                         <h3><a href="news/{{$newses->id}}">{{$newses->title}}</a></h3>
-                        <p>It is not yet clear whether Omicron is more easily spread from person to person compared to other variants, or whether infection with it causes more severe disease..</p>
+                        <p>
+                            {!! $newses->excerpt !!}
+                        </p>
                         <div class="author">
-                            <img src="images/khanal.png" class="img-responsive" alt="">
+                            <img src="{{asset('front/images/khanal.png')}}" class="img-responsive" alt="">
                             <div class="author-info">
-                                <h5>Ashish Chaudhary</h5>
-                                <p>CEO / Founder</p>
+                                <h5>{{$newses->author}}</h5>
+                                <p>{{$newses->designation->designation_name}}</p>
                             </div>
                         </div>
                     </div>
@@ -311,13 +313,14 @@
         <div class="row">
 
             <div class="col-md-6 col-sm-6">
-                <img src="images/appointment1.jpg" class="img-responsive" alt="">
+                <img src="{{asset('front/images/appointment1.jpg')}}" class="img-responsive" alt="">
             </div>
 
             <div class="col-md-6 col-sm-6">
                 <!-- CONTACT FORM HERE -->
-                <form id="appointment-form" role="form" method="post" action="#">
+                <form id="appointment-form" role="form" method="post" action="{{route('appointment.store')}}">
 
+                    @csrf
                     <!-- SECTION TITLE -->
                     <div class="section-title wow fadeInUp" data-wow-delay="0.4s">
                         <h2>Make an appointment</h2>
@@ -325,36 +328,69 @@
 
                     <div class="wow fadeInUp" data-wow-delay="0.8s">
                         <div class="col-md-6 col-sm-6">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Full Name">
+                            <label for="patient_name">Name</label>
+                            <input type="text" class="form-control" id="patient_name" name="patient_name" placeholder="Full Name">
                         </div>
 
                         <div class="col-md-6 col-sm-6">
                             <label for="email">Email</label>
                             <input type="email" class="form-control" id="email" name="email" placeholder="Your Email">
                         </div>
-
                         <div class="col-md-6 col-sm-6">
-                            <label for="date">Select Date</label>
-                            <input type="date" name="date" value="" class="form-control">
+                            <label for="patient_name">Address</label>
+                            <input type="text" class="form-control" id="patient_name" name="patient_address" placeholder="Enter Address">
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <label for="date">Date Of Birth</label>
+                            <input type="date" name="date_of_birth" value="" class="form-control">
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <label for="select">Select Gender</label>
+                            <select class="form-control" name="gender">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <label for="patient_name">Age</label>
+                            <input type="number" class="form-control" id="patient_age" name="age" placeholder="Enter your age">
                         </div>
 
                         <div class="col-md-6 col-sm-6">
-                            <label for="select">Select Department</label>
-                            <select class="form-control">
-                                <option>General Health</option>
-                                <option>Cardiology</option>
-                                <option>Dental</option>
-                                <option>Surgeon</option>
-                                <option>Neurologist</option>
-                                <option>Dermatology</option>
-                                <option>Medical Research</option>
+                            <label for="select">Select Blood_group</label>
+                            <select class="form-control" name="blood_group">
+                                <option>A+</option>
+                                <option>B+</option>
+                                <option>AB+</option>
+                                <option>o-</option>
+                                <option>o+</option>
+                                <option>A-</option>
+                                <option>B-</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <label for="select">Select Specialist</label>
+                            <select class="form-control" name="specialist_id">
+                                @forelse($data['_specialist'] as $spec)
+                                <option value="{{$spec->id}}">{{$spec->specialist_name}}</option>
+                                @empty
+                                @endforelse
                             </select>
                         </div>
 
+                        <div class="col-md-6 col-sm-6">
+                            <label for="date">Select Date For Appointment</label>
+                            <input type="date" name="appointment_date" value="" class="form-control">
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <label for="date">Time For Appointment</label>
+                            <input type="time" name="time_for_appointment" value="" class="form-control">
+                        </div>
+
                         <div class="col-md-12 col-sm-12">
-                            <label for="telephone">Phone Number</label>
-                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone">
+                            <label for="phone_number">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone_number" name="phone_number" placeholder="Phone">
                             <label for="Message">Additional Message</label>
                             <textarea class="form-control" rows="5" id="message" name="message" placeholder="Message"></textarea>
                             <button type="submit" class="form-control" id="cf-submit" name="submit">Submit Button</button>
@@ -460,7 +496,7 @@
                     <h4 class="wow fadeInUp" data-wow-delay="0.4s">Latest News</h4>
                     <div class="latest-stories">
                         <div class="stories-image">
-                            <a href="#"><img src="images/news-image.jpg" class="img-responsive" alt=""></a>
+                            <a href="#"><img src="{{asset('front/images/news-image.jpg')}}" class="img-responsive" alt=""></a>
                         </div>
                         <div class="stories-info">
                             <a href="#"><h5>Growing fast food culture</h5></a>
@@ -470,7 +506,7 @@
 
                     <div class="latest-stories">
                         <div class="stories-image">
-                            <a href="#"><img src="images/news-image.jpg" class="img-responsive" alt=""></a>
+                            <a href="#"><img src="{{asset('front/images/news-image.jpg')}}" class="img-responsive" alt=""></a>
                         </div>
                         <div class="stories-info">
                             <a href="#"><h5>Nepal’s tobacco consumption</h5></a>
@@ -531,6 +567,43 @@
                 </div>
             </div>
 
+            <!-- Your HTML code here -->
+
+            <!-- Modal -->
+            <div id="validationModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            @if($errors->any())
+                                <div class="validation-errors">
+                                    @foreach ($errors->all() as $error)
+                                        <span class="error-message">{{$error}}</span>
+                                    @endforeach
+                                </div>
+                            @else
+                                <div class="success-message">
+                                    Successfully appointed!
+                                </div>
+                            @endif
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Your other HTML content -->
+
+            <!--Modal Launch Button-->
+            <button type="button" class="btn btn-info btn-lg openmodal" data-toggle="modal" data-target="#validationModal">Open Modal</button>
+
+
         </div>
     </div>
 </footer>
@@ -547,6 +620,15 @@
 <script src="{{asset('front/js/smoothscroll.js')}}"></script>
 <script src="{{asset('front/js/owl.carousel.min.js')}}"></script>
 <script src="{{asset('front/js/custom.js')}}"></script>
+
+
+<script>
+    $(document).ready(function() {
+        @if($errors->any())
+        $("#validationModal").modal("show");
+        @endif
+    });
+</script>
 
 
 </body>

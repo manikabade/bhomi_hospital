@@ -16,6 +16,7 @@ class News extends BaseModel
          'designation_id',
          'date',
          'image',
+         'excerpt',
          'status',
     ];
     public function designation(): BelongsTo
