@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('specialist_id')->constrained('specialists')->cascadeOnDelete();
             $table->string('patient_name');
             $table->string('email');
-            $table->integer('phone_number');
+            $table->string('phone_number');
             $table->string('gender');
             $table->date('date_of_birth');
             $table->integer('age');

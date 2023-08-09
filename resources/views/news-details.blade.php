@@ -80,7 +80,7 @@
                 <li><a href="index.html#news" class="smoothScroll">News</a></li>
                 <li><a href="index.html#google-map" class="smoothScroll">Contact</a></li>
                 <li class="appointment-btn"><a href="index.html#appointment">Make an appointment</a></li>
-                <li class="report-btn"><a href="index.html#report">Medical Report</a></li>
+                <li class="report-btn"><a href="index. html#report">Medical Report</a></li>
                 <li class="ambulance-btn"><a href="index.html#ambulance">Ambulance</a></li>
 
             </ul>
