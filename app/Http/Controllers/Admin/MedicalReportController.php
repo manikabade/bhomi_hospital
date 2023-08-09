@@ -86,6 +86,6 @@ class MedicalReportController extends Controller
     public function destroy(MedicalReport $medicalReport)
     {
         $medicalReport->delete();
-        return redirect()->route('admin.medicalReport.index')->with('sucess','medicalReport has been deleted sucessfully');
+        return redirect()->route('admin.medicalReport.index')->with('success','medicalReport has been deleted successfully');
     }
 }

@@ -30,7 +30,7 @@
     <div class="col-sm-6">
         <div class="form-group">
             <label for="phone_number">Phone Number</label>
-            {!! Form::number('phone_number',$data['row']->phone_number??null,[
+            {!! Form::text('phone_number',$data['row']->phone_number??null,[
                 'class'=> $errors->has('phone_number')?'form-control is-invalid':'form-control',
                     'placeholder'=>'Enter Phone Number',
                ]) !!}

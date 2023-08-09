@@ -29,13 +29,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[\App\Http\Controllers\HomeController::class,'index']) ->name('index');
 Route::get('news/{id}',[\App\Http\Controllers\HomeController::class,'newsDetail']) ->name('news.detail');
 Route::post('appointment',[\App\Http\Controllers\HomeController::class,'appointmentForm']) ->name('appointment.store');
+Route::get('medical-report',[\App\Http\Controllers\HomeController::class,'medicalReport'])->name('medical.reports');
+Route::post('filter-medical',[\App\Http\Controllers\HomeController::class,'medicalReport'])->name('filter.medical');
 
 Auth::routes();
 
 Route::group(['middleware'=>['auth']], function() {
 
     Route::group(['prefix' => 'admin/', 'as' => 'admin.'], function () {
-        Route::get('dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+        Route::get('dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('home');
 
 
         Route::resource('doctor', DoctorController::class);

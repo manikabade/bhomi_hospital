@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Admin\Appointment\StoreAppointmentValidation;
 use App\Models\Admin\Appointment;
 use App\Models\Admin\Doctor;
+use App\Models\Admin\MedicalReport;
 use App\Models\Admin\News;
 use App\Models\Admin\Specialist;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class HomeController extends Controller
 {
@@ -29,6 +32,7 @@ class HomeController extends Controller
         $data['_doctors'] = Doctor::active()->get();
         $data['_news'] = News::active()->get();
         $data['_specialist'] = Specialist::all();
+        $data['_MedicalReport']=MedicalReport::all();
         return view('welcome',compact('data') );
     }
 
@@ -43,9 +47,35 @@ class HomeController extends Controller
 
     public function appointmentForm(StoreAppointmentValidation $request)
     {
+        try {
+            $data = $request->validated();
+            $appointment = Appointment::create($data);
 
-        $appointment = Appointment::create($request->validated());
-
-        return redirect()->back()->with('message','Your form has been filled up');
+            Alert::success('Success', 'Appointment Successfully.');
+            return back();
+        } catch (\Exception $e) {
+            Alert::error('Error', 'Appointment Creation Failed.');
+            return back()->withInput($data);
+        }
     }
+
+    public function medicalReport()
+
+    {
+        $reports = MedicalReport::all();
+            return view('medical-reports',compact('reports'));
+//        return abort(404);
+
+
+    }
+    public function filtermedical()
+    {
+        $data=MedicalReport::all();
+        $response['html'] =view('filter_medical',compact('data'))->render();
+
+
+        return response()->json(json_encode('response'));
+    }
+
 }
+

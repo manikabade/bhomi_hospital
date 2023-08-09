@@ -23,17 +23,20 @@
     <link rel="stylesheet" href="{{asset('front/css/tooplate-style.css')}}">
 
 
+
 </head>
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
+@include('sweetalert::alert')
+
 <!-- PRE LOADER -->
-<section class="preloader">
-    <div class="spinner">
+{{--<section class="preloader">--}}
+{{--    <div class="spinner">--}}
 
-        <span class="spinner-rotate"></span>
+{{--        <span class="spinner-rotate"></span>--}}
 
-    </div>
-</section>
+{{--    </div>--}}
+{{--</section>--}}
 
 
 <!-- HEADER -->
@@ -46,7 +49,7 @@
             </div>
 
             <div class="col-md-8 col-sm-7 text-align-right">
-                <span class="phone-icon"><i class="fa fa-phone"></i> 011-660110</span>
+                <span class="phone-icon"><i class="fa fa-phone"></i> {{$_site_profile->phone}}</span>
                 <span class="date-icon"><i class="fa fa-calendar-plus-o"></i> 6:00 AM - 10:00 PM (Mon-Fri)</span>
                 <span class="email-icon"><i class="fa fa-envelope-o"></i> <a href="#">info@Bhomihospital.com</a></span>
             </div>
@@ -79,7 +82,7 @@
                 <li><a href="#news" class="smoothScroll">News</a></li>
                 <li><a href="#google-map" class="smoothScroll">Contact</a></li>
                 <li class="appointment-btn"><a href="#appointment">Make an Appointment</a></li>
-                <li class="report-btn"><a href="medical-report.html">Medical Report</a></li>
+                <li class="report-btn"><a href={{route('medical.reports')}}>Medical Report</a></li>
                 <li class="ambulance-btn"><a href="ambulance.html">Ambulance</a></li>
             </ul>
         </div>
@@ -141,7 +144,7 @@
                         <div class="timeline-content" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="And here's some amazing content. It's very engaging. Right?" data-original-title="2003">
                             <div class="inner-circle"></div>
                             <p class="h6 mt-3 mb-1">Step 1</p>
-                            <p class="h6 text-muted mb-0 mb-lg-0">Select Department</p>
+                            <p class="h6 text-muted mb-0 mb-lg-0">Select Specialist</p>
                         </div>
                     </div>
                     <div class="timeline-step">
@@ -155,7 +158,7 @@
                         <div class="timeline-content" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="And here's some amazing content. It's very engaging. Right?" data-original-title="2005">
                             <div class="inner-circle"></div>
                             <p class="h6 mt-3 mb-1">Step 3</p>
-                            <p class="h6 text-muted mb-0 mb-lg-0">Select appointment time </p>
+                            <p class="h6 text-muted mb-0 mb-lg-0">Select appointment date and time </p>
                         </div>
                     </div>
                     <div class="timeline-step">
@@ -169,7 +172,7 @@
                         <div class="timeline-content" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="And here's some amazing content. It's very engaging. Right?" data-original-title="2020">
                             <div class="inner-circle"></div>
                             <p class="h6 mt-3 mb-1">Step 5</p>
-                            <p class="h6 text-muted mb-0 mb-lg-0">Payments</p>
+                            <p class="h6 text-muted mb-0 mb-lg-0">Voucher</p>
                         </div>
                     </div>
                 </div>
@@ -326,6 +329,7 @@
                         <h2>Make an appointment</h2>
                     </div>
 
+
                     <div class="wow fadeInUp" data-wow-delay="0.8s">
                         <div class="col-md-6 col-sm-6">
                             <label for="patient_name">Name</label>
@@ -394,7 +398,9 @@
                             <label for="Message">Additional Message</label>
                             <textarea class="form-control" rows="5" id="message" name="message" placeholder="Message"></textarea>
                             <button type="submit" class="form-control" id="cf-submit" name="submit">Submit Button</button>
+
                         </div>
+
                     </div>
                 </form>
             </div>
@@ -412,8 +418,9 @@
            3. Click "Share" and choose "Embed map" tab
            4. Copy only URL and paste it within the src="" field below
    -->
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3647.3030413476204!2d100.5641230193719!3d13.757206847615207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf51ce6427b7918fc!2sG+Tower!5e0!3m2!1sen!2sth!4v1510722015945" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28277.69905815634!2d85.52425149999999!3d27.63342315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb0f33b1a23b53%3A0xe8ec0b92bdf38a54!2sBanepa!5e0!3m2!1sen!2snp!4v1691062938246!5m2!1sen!2snp" width="100%" height="350" frameborder="0" style="border:0" allowfullscreenwidth="600" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </section>
+
 
 <!--Modal Launch Button-->
 <button type="button" class="btn btn-info btn-lg openmodal" data-toggle="modal" data-target="#myModal">Give us Feedback</button>
@@ -549,7 +556,7 @@
                     <div class="copyright-text">
                         <p>Copyright &copy; 2017 Bhomi Hospital
 
-                            | Design : <a href="#" target="">bhomi</a></p>
+                            | Design : <a href="#" target="">{{$_site_profile->title}}</a></p>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6">
@@ -567,31 +574,23 @@
                 </div>
             </div>
 
-            <!-- Your HTML code here -->
 
-            <!-- Modal -->
             <div id="validationModal" class="modal fade" role="dialog">
                 <div class="modal-dialog">
 
                     <!-- Modal content-->
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
                         <div class="modal-body">
-                            @if($errors->any())
-                                <div class="validation-errors">
-                                    @foreach ($errors->all() as $error)
-                                        <span class="error-message">{{$error}}</span>
-                                    @endforeach
-                                </div>
-                            @else
-                                <div class="success-message">
-                                    Successfully appointed!
-                                </div>
-                            @endif
+                            <div class="validation-errors">
+                                @foreach ($errors->all() as $error)
+                                    <span class="error-message">{{$error}}</span>
+                                @endforeach
+                            </div>
                         </div>
                         <div class="modal-footer">
+                            <pre>
+                               The appointment had already been scheduled.Please Choose Another Date/Time. Thank You.
+                            </pre>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                     </div>
@@ -601,7 +600,10 @@
             <!-- Your other HTML content -->
 
             <!--Modal Launch Button-->
-            <button type="button" class="btn btn-info btn-lg openmodal" data-toggle="modal" data-target="#validationModal">Open Modal</button>
+{{--            <button type="button" class="btn btn-info btn-lg openmodal" data-toggle="modal" data-target="#validationModal" hidden>Open Modal</button>--}}
+
+            <!-- Your HTML code here -->
+
 
 
         </div>
@@ -621,7 +623,23 @@
 <script src="{{asset('front/js/owl.carousel.min.js')}}"></script>
 <script src="{{asset('front/js/custom.js')}}"></script>
 
+<script src="{{ asset('vendor/sweetalert2/sweetalert2.all.min.js') }}"></script>
+<script>
+    // Check if there are validation errors in the "errors" variable passed from the controller
+    @if($errors->any())
+    // Concatenate all the error messages into a single string
+    var errorMessage = @json(implode("<br>", $errors->all()));
 
+    // Display the error message using SweetAlert
+    Swal.fire({
+        icon: 'error',
+        title: 'Validation Error',
+        html: errorMessage,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK',
+    });
+    @endif
+</script>
 <script>
     $(document).ready(function() {
         @if($errors->any())
@@ -629,7 +647,5 @@
         @endif
     });
 </script>
-
-
 </body>
 </html>
