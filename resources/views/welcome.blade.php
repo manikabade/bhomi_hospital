@@ -172,7 +172,7 @@
                         <div class="timeline-content" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="And here's some amazing content. It's very engaging. Right?" data-original-title="2020">
                             <div class="inner-circle"></div>
                             <p class="h6 mt-3 mb-1">Step 5</p>
-                            <p class="h6 text-muted mb-0 mb-lg-0">Voucher</p>
+                            <p class="h6 text-muted mb-0 mb-lg-0"></p>
                         </div>
                     </div>
                 </div>
@@ -285,7 +285,7 @@
                 <!-- NEWS THUMB -->
                 <div class="news-thumb wow fadeInUp" data-wow-delay="0.4s">
                     <a href="news/{{$newses->id}}">
-                        <img src="{{asset('images/news')}}/{{$newses->image}}" class="img-responsive" alt="">
+                        <img src="{{asset('images/news')}}/{{$newses->image}}" class="img-responsive" alt="" >
                     </a>
                     <div class="news-info">
                         <span>{{$newses->created_at->format('Y','m','d')}}</span>

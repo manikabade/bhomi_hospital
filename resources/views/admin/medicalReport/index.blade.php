@@ -43,10 +43,10 @@
                                     <tr class="text-center">
                                         <th>ID</th>
                                         <th>Patient Name</th>
-                                        <th>Precaution</th>
                                         <th>General lab Test</th>
                                         <th>Report</th>
                                         <th>Remarks</th>
+                                        <th>Precaution</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -56,10 +56,10 @@
                                         <tr>
                                             <td>{{$medicalReport->id}}</td>
                                             <td>{{ $medicalReport->patient->patient_name?? 'Patient Name' }}</td>
-                                            <td>{{ $medicalReport->precaution}}</td>
                                             <td>{{ $medicalReport->generalLabtest->general_labtest?? 'General Lab Test' }}</td>
                                             <td>{{ $medicalReport->generalLabtest->report?? 'Report' }}</td>
                                             <td>{{ $medicalReport->generalLabtest->remarks?? 'Remarks' }}</td>
+                                            <td>{{ $medicalReport->precaution}}</td>
                                             <td>
                                                 {!! $medicalReport->status ?'<span class="badge badge-success">Active</span>':'<span class="badge badge-danger">InActive</span>' !!}
                                             </td>
