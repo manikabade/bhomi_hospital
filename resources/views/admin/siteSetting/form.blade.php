@@ -116,7 +116,7 @@
     <div class="col-sm-6">
         <div class="form-group">
             <label for="phone">Phone No.</label>
-            {!! Form::number('phone',$data['row']->phone??null,[
+            {!! Form::text('phone',$data['row']->phone??null,[
                 'class'=> $errors->has('phone')?'form-control is-invalid':'form-control',
                     'placeholder'=>'Enter Phone No.',
                ]) !!}
