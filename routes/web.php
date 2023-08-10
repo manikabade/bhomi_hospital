@@ -25,7 +25,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+    \Illuminate\Support\Facades\View::composer(['*'],function ($site_data){
+        $url =env('APP_URL').":8000";
+        $site_data->with([
+           '_url'=>$url,
+        ]);
+    });
 Route::get('/',[\App\Http\Controllers\HomeController::class,'index']) ->name('index');
 Route::get('news/{id}',[\App\Http\Controllers\HomeController::class,'newsDetail']) ->name('news.detail');
 Route::post('appointment',[\App\Http\Controllers\HomeController::class,'appointmentForm']) ->name('appointment.store');
