@@ -72,7 +72,7 @@
                                             <td>{{$appointment->blood_group}}</td>
                                             <td>{{$appointment->specialist->specialist_name?? 'Specialist' }}</td>
                                             <td>{{$appointment->appointment_date}}</td>
-                                            <td>{{$appointment->time_for_appointment}}</td>
+                                            <td>{{$appointment->image}}</td>
                                             <td>
 
                                                 <img height="100px" width="100px" src="{{asset('images/appointment/'.$appointment->image)}}">

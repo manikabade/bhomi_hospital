@@ -79,8 +79,8 @@
                             <input type="time" name="time_for_appointment" value="" class="form-control">
                         </div>
                         <div class="col-md-6 col-sm-6">
-                            <label for="voucherimage">Voucher Image</label>
-                            <input type="time" name="time_for_appointment" value="" class="form-control">
+                            <label for="image">Voucher Image</label>
+                            <input type="file" id="myFile" name="image" class="form-control">
                         </div>
 
                         <div class="col-md-12 col-sm-12">
