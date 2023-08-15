@@ -60,8 +60,8 @@
                                        {{$data['row']->patient_name}}<br>
                                        {{$data['row']->patient_address}}<br>
                                        {{$data['row']->email}}<br>
-                                       {{$data['row']->patient_name}}<br>
                                        {{$data['row']->date_of_birth}}<br>
+                                        {{$data['row']->phone_number}}<br>
                                     </address>
                                 </div>
                                 <!-- /.col -->

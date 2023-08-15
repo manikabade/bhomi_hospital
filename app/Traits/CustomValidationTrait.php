@@ -15,7 +15,6 @@ trait CustomValidationTrait{
     public function customValidation()
     {
         $this->foreignIdValidation('user_id_validation',User::class);
-        $this->foreignIdValidation('patient_id_validation', Patient::class);
         $this->foreignIdValidation('specialist_id_validation', Specialist::class);
         $this->foreignIdValidation('designation_id_validation', Designation::class);
         $this->foreignIdValidation('general_labtest_id_validation', GeneralLabtest::class);
@@ -43,7 +42,6 @@ trait CustomValidationTrait{
     {
         return [
             'user_id.user_id_validation'                                     => 'Select valid user',
-            'patient_id.patient_id_validation'                               => 'Select valid Patient',
             'specialist_id.specialist_id_validation'                         => 'Select valid Specialist',
             'designation_id.designation_id_validation'                       => 'Select valid Designation',
             'general_labtest_id.general_labtest_id_validation'               => 'Select valid General Test ID',
