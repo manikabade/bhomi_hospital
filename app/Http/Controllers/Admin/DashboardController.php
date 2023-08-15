@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Appointment;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -21,6 +22,9 @@ class DashboardController extends Controller
     public function index()
     {
 
-        return view('admin.index');
+        $data = [];
+        $data['_appointment'] = Appointment::count();
+
+        return view('admin.index',compact('data'));
     }
 }

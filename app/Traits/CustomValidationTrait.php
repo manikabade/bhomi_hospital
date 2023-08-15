@@ -3,6 +3,7 @@ namespace App\Traits;
 
 use App\Models\Admin\Designation;
 use App\Models\Admin\GeneralLabtest;
+use App\Models\Admin\ScheduleManagement;
 use App\Models\Admin\Specialist;
 use App\Models\Admin\User;
 use App\Models\Admin\Patient;
@@ -18,6 +19,7 @@ trait CustomValidationTrait{
         $this->foreignIdValidation('specialist_id_validation', Specialist::class);
         $this->foreignIdValidation('designation_id_validation', Designation::class);
         $this->foreignIdValidation('general_labtest_id_validation', GeneralLabtest::class);
+        $this->foreignIdValidation('schedule_management_id_validation', ScheduleManagement::class);
 
     }
 
@@ -40,11 +42,12 @@ trait CustomValidationTrait{
     public function messages()
     {
         return [
-            'user_id.user_id_validation'                    => 'Select valid user',
-            'patient_id.patient_id_validation'              => 'Select valid Patient',
-            'specialist_id.specialist_id_validation'        => 'Select valid Specialist',
-            'designation_id.designation_id_validation'       => 'Select valid Designation',
-            'general_labtest_id.general_labtest_id_validation'       => 'Select valid General Test ID',
+            'user_id.user_id_validation'                                     => 'Select valid user',
+            'patient_id.patient_id_validation'                               => 'Select valid Patient',
+            'specialist_id.specialist_id_validation'                         => 'Select valid Specialist',
+            'designation_id.designation_id_validation'                       => 'Select valid Designation',
+            'general_labtest_id.general_labtest_id_validation'               => 'Select valid General Test ID',
+            'schedule_management_id.schedule_management_id_validation'       => 'Select valid Schedule Management',
 
         ];
     }

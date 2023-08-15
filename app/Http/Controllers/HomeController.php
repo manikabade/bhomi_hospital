@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Admin\Appointment\StoreAppointmentValidation;
+use App\Http\Requests\Admin\Feedback\StoreFeedbackValidation;
+use App\Models\Admin\Ambulance;
 use App\Models\Admin\Appointment;
 use App\Models\Admin\Doctor;
+use App\Models\Admin\Feedback;
 use App\Models\Admin\MedicalReport;
 use App\Models\Admin\News;
+use App\Models\Admin\ScheduleManagement;
 use App\Models\Admin\Specialist;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -33,6 +37,8 @@ class HomeController extends Controller
         $data['_news'] = News::active()->get();
         $data['_specialist'] = Specialist::all();
         $data['_MedicalReport']=MedicalReport::all();
+        $data['_ambulances'] = Ambulance::all();
+        $data['_ScheduleManagement'] = ScheduleManagement::all();
         return view('welcome',compact('data') );
     }
 
@@ -75,6 +81,25 @@ class HomeController extends Controller
 
 
         return response()->json(json_encode('response'));
+    }
+    public function ambulance()
+
+    {
+        $data['_ambulances'] = Ambulance::all();
+        return view('ambulance',compact('data'));
+    }
+    public function feedbackForm(StoreFeedbackValidation $request)
+    {
+        try {
+            $data = $request->validated();
+            $feedback = Feedback::create($data);
+
+            Alert::success('Success', 'Feedback Successfully.');
+            return back();
+        } catch (\Exception $e) {
+            Alert::error('Error', 'Feedback Failed.');
+            return back()->withInput($data);
+        }
     }
 
 }

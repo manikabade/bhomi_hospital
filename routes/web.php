@@ -5,10 +5,12 @@ use App\Http\Controllers\Admin\AmbulanceController;
 use App\Http\Controllers\Admin\AppointmentController;
 use App\Http\Controllers\Admin\DesignationController;
 use App\Http\Controllers\Admin\DoctorController;
+use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\GeneralLabTestController;
 use App\Http\Controllers\Admin\MedicalReportController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\PatientController;
+use App\Http\Controllers\Admin\ScheduleManagementController;
 use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\SpecialistController;
@@ -36,6 +38,8 @@ Route::get('news/{id}',[\App\Http\Controllers\HomeController::class,'newsDetail'
 Route::post('appointment',[\App\Http\Controllers\HomeController::class,'appointmentForm']) ->name('appointment.store');
 Route::get('medical-report',[\App\Http\Controllers\HomeController::class,'medicalReport'])->name('medical.reports');
 Route::post('filter-medical',[\App\Http\Controllers\HomeController::class,'medicalReport'])->name('filter.medical');
+Route::get('ambulance',[\App\Http\Controllers\HomeController::class,'ambulance'])->name('ambulance');
+Route::post('feedback',[\App\Http\Controllers\HomeController::class,'feedbackForm']) ->name('feedback.store');
 
 Auth::routes();
 
@@ -54,8 +58,11 @@ Route::group(['middleware'=>['auth']], function() {
         Route::resource('specialist', SpecialistController::class);
         Route::resource('news', NewsController::class);
         Route::resource('slider', SliderController::class);
+        Route::resource('slider', SliderController::class);
         Route::resource('aboutUs', AboutUsController::class);
         Route::resource('generalLabtest', GeneralLabTestController::class);
+        Route::resource('feedback', FeedbackController::class);
+        Route::resource('scheduleManagement', ScheduleManagementController::class);
 
         Route::get('siteSetting', [SiteSettingController::class,'edit'])->name('siteSetting');
         Route::put('siteSetting/update/{id}', [SiteSettingController::class,'update'])->name('siteSetting.update');
@@ -63,6 +70,6 @@ Route::group(['middleware'=>['auth']], function() {
     });
 
 });
-Auth::routes();
+
 
 

@@ -6,15 +6,15 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-{{--                        <h3><a href="{{ route('ambulance.index') }}">Ambulance</a></h3><br>--}}
-                        <h3>Ambulance</h3>
-                        <a class="btn btn-outline-primary " href="{{route('admin.ambulance.create')}}" role="button">Create Ambulance</a>
+{{--                        <h3><a href="{{ route('feedback.index') }}">Feedback</a></h3><br>--}}
+                        <h3>Feedback</h3>
+{{--                        <a class="btn btn-outline-primary " href="{{route('admin.feedback.create')}}" role="button">Create Feedback</a>--}}
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('admin.home')}}"><i class="fa fa-home"></i>Home</a>
                             </li>
-                            <li class="breadcrumb-item active">Ambulance</li>
+                            <li class="breadcrumb-item active">Feedback</li>
                         </ol>
                     </div>
                 </div>
@@ -28,14 +28,14 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Ambulance Information</h3>
+                                <h3 class="card-title">Feedback Information</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
                                 {{--                                <div class="row">--}}
                                 {{--                                    <div class="col-md-12">--}}
                                 {{--                                        <div class="text-center">--}}
-                                {{--                                            {{ $ambulances->links() }}--}}
+                                {{--                                            {{ $feedbacks->links() }}--}}
                                 {{--                                        </div>--}}
                                 {{--                                    </div>--}}
                                 {{--                                </div>--}}
@@ -43,45 +43,44 @@
                                     <thead>
                                     <tr class="text-center">
                                         <th>ID</th>
-                                        <th>Ambulance Name</th>
-                                        <th>Phone Number</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
+                                        <th>Feedback</th>
+                                        <th>Message</th>
+{{--                                        <th>Status</th>--}}
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @forelse($ambulances as $ambulance)
+                                    @forelse($feedbacks as $feedback)
                                         <tr>
-                                            <td>{{$ambulance->id}}</td>
-                                            <td>{{$ambulance->ambulance_name}}</td>
-                                            <td>{{$ambulance->phone_number}}</td>
+                                            <td>{{$feedback->id}}</td>
+                                            <td>{{$feedback->feedback}}</td>
+                                            <td>{{$feedback->message}}</td>
 
-                                            <td>
-                                                {!! $ambulance->status ?'<span class="badge badge-success">Active</span>':'<span class="badge badge-danger">InActive</span>' !!}
-                                            </td>
+{{--                                            <td>--}}
+{{--                                                {!! $feedback->status ?'<span class="badge badge-success">Read Feedback</span>':'<span class="badge badge-danger">Unread Feedback </span>' !!}--}}
+{{--                                            </td>--}}
 
-                                            <td>
-                                                <div class="row">
-                                                    <a class="btn btn-success" href="{{route('admin.ambulance.edit',$ambulance->id)}}">
-                                                        <i class="fa fa-edit"></i>
-                                                    </a>
-{{--                                                    <form action="{{route('ambulance.destroy',$ambulance->id)}}" method="POST">--}}
+{{--                                            <td>--}}
+{{--                                                <div class="row">--}}
+{{--                                                    <a class="btn btn-success" href="{{route('admin.feedback.edit',$feedback->id)}}">--}}
+{{--                                                        <i class="fa fa-edit"></i>--}}
+{{--                                                    </a>--}}
+{{--                                                    <form action="{{route('feedback.destroy',$feedback->id)}}" method="POST">--}}
 {{--                                                        @csrf--}}
 {{--                                                        @method('DELETE')--}}
 {{--                                                        <button type="submit" class="btn btn-danger">--}}
 {{--                                                            <i class="fa fa-trash"></i>--}}
 {{--                                                        </button>--}}
 {{--                                                    </form>--}}
-                                                    <a href="javascript:void(0)" onclick="var c = confirm('{{ "Are you sure?" }}'); if(c){document.getElementById('delete-{{$ambulance->id}}').submit();}" class="btn btn-sm swalDefaultQuestion btn-danger">
-                                                        <i class="fa fa-trash"></i>
-                                                        <form id="delete-{{$ambulance->id}}" action="{{ route('admin.ambulance.destroy',$ambulance->id) }}" method="POST"  style="display: none;">
-                                                            @method('DELETE')
-                                                            @csrf
-                                                        </form>
-                                                    </a>
-                                                </div>
+{{--                                                    <a href="javascript:void(0)" onclick="var c = confirm('{{ "Are you sure?" }}'); if(c){document.getElementById('delete-{{$feedback->id}}').submit();}" class="btn btn-sm swalDefaultQuestion btn-danger">--}}
+{{--                                                        <i class="fa fa-trash"></i>--}}
+{{--                                                        <form id="delete-{{$feedback->id}}" action="{{ route('admin.feedback.destroy',$feedback->id) }}" method="POST"  style="display: none;">--}}
+{{--                                                            @method('DELETE')--}}
+{{--                                                            @csrf--}}
+{{--                                                        </form>--}}
+{{--                                                    </a>--}}
+{{--                                                </div>--}}
 
-                                            </td>
+{{--                                            </td>--}}
 
                                         </tr>
                                     @empty

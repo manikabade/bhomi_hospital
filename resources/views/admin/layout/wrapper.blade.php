@@ -18,7 +18,7 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <!-- <div class="content">
+     <div class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6">
@@ -32,7 +32,7 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <p class="d-flex flex-column">
-                                    <span class="text-bold text-lg">820</span>
+                                    <span class="text-bold text-lg">{{ $data['_appointment']}}</span>
                                     <span>Visitors Over Time</span>
                                 </p>
                                 <p class="ml-auto d-flex flex-column text-right">
@@ -41,7 +41,7 @@
                     </span>
                                     <span class="text-muted">Since last week</span>
                                 </p>
-                            </div> -->
+                            </div>
                             <!-- /.d-flex -->
 
                             <!-- <div class="position-relative mb-4">

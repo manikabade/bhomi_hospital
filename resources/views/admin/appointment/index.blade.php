@@ -42,18 +42,19 @@
                                     <thead>
                                     <tr class="text-center">
                                         <th>ID</th>
-                                        <th>Appointment Name</th>
+                                        <th>Patient Name</th>
                                         <th>Email</th>
                                         <th>Phone Number</th>
                                         <th>Gender</th>
                                         <th>Date of Birth</th>
                                         <th>Age</th>
-                                        <th>Appointment Address</th>
+                                        <th>Patient Address</th>
                                         <th>Blood Group</th>
                                         <th>Specialist</th>
                                         <th>Appointment Date</th>
                                         <th>Time For Appointment</th>
-                                        <th>Image</th>
+                                        <th>Additional Message</th>
+                                        <th>Voucher Image</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -72,7 +73,9 @@
                                             <td>{{$appointment->blood_group}}</td>
                                             <td>{{$appointment->specialist->specialist_name?? 'Specialist' }}</td>
                                             <td>{{$appointment->appointment_date}}</td>
-                                            <td>{{$appointment->time_for_appointment}}</td>
+                                            <td>{{ $medicalReport->scheduleManagement->time_for_appointment?? 'Time For Appointment' }}</td>
+                                            <td>{{$appointment->message}}</td>
+
                                             <td>
 
                                                 <img height="100px" width="100px" src="{{asset('images/appointment/'.$appointment->image)}}">
@@ -93,6 +96,9 @@
                                                             @method('DELETE')
                                                             @csrf
                                                         </form>
+                                                        <a class="btn btn-primary" href="{{route('admin.appointment.show',$appointment->id)}}">
+                                                            <i class="fas fa-eye"></i>
+                                                        </a>
                                                     </a>
 {{--                                                    <form action="{{route('patient.destroy',$patient->id)}}" method="POST">--}}
 {{--                                                        @csrf--}}
@@ -113,15 +119,7 @@
                                     @endforelse
 
                                     </tbody>
-                                    {{--            <tfoot>--}}
-                                    {{--            <tr>--}}
-                                    {{--                <th>Rendering engine</th>--}}
-                                    {{--                <th>Browser</th>--}}
-                                    {{--                <th>Platform(s)</th>--}}
-                                    {{--                <th>Engine version</th>--}}
-                                    {{--                <th>CSS grade</th>--}}
-                                    {{--            </tr>--}}
-                                    {{--            </tfoot>--}}
+
                                 </table>
                             </div>
                         </div>

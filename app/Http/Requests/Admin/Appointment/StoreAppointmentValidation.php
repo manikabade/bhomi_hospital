@@ -24,7 +24,9 @@ class StoreAppointmentValidation extends FormRequest
     public function rules()
     {
 
+
         $this->customValidation();
+
         return [
             'patient_name'                 => ['required','string'],
             'email'                        => ['nullable','string'],
@@ -35,9 +37,12 @@ class StoreAppointmentValidation extends FormRequest
             'patient_address'               => ['required','string'],
             'blood_group'                  => ['required','string'],
             'specialist_id'                => ['required','specialist_id_validation'],
-            'appointment_date'             => ['required','unique:appointments','date'],
-            'time_for_appointment'         => ['required','unique:appointments','date_format:H:i'],
-            'main_photo'                    => ['nullable'],
+//            'appointment_date'             => ['required','unique:appointments','date'],
+            'appointment_date'             => ['required','date'],
+//           'time_for_appointment'        => ['required','unique:appointments','date_format:H:i'],
+            'schedule_management_id'       => ['required','schedule_management_id_validation'],
+            'main_photo'                   => ['nullable'],
+            'message'                      => ['required','string'],
             'status'                       => ['nullable', 'boolean'],
         ];
     }

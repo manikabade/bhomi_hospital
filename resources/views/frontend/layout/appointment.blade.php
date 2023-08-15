@@ -74,13 +74,23 @@
                             <label for="date">Select Date For Appointment</label>
                             <input type="date" name="appointment_date" value="" class="form-control">
                         </div>
+{{--                        <div class="col-md-6 col-sm-6">--}}
+{{--                            <label for="date">Time For Appointment</label>--}}
+{{--                            <input type="time" name="time_for_appointment" value="" class="form-control">--}}
+{{--                        </div>--}}
                         <div class="col-md-6 col-sm-6">
-                            <label for="date">Time For Appointment</label>
-                            <input type="time" name="time_for_appointment" value="" class="form-control">
+                            <label name="schedule_management_id" for="select">Select Time For Appointment</label>
+                            <select class="form-control" name="schedule_management_id">
+                                @forelse($data['_ScheduleManagement'] as $scheduleManagement)
+                                    <option value="{{$scheduleManagement->id}}">{{$scheduleManagement->time_for_appointment}}</option>
+                                @empty
+                                @endforelse
+                            </select>
                         </div>
+
                         <div class="col-md-6 col-sm-6">
                             <label for="voucherimage">Voucher Image</label>
-                            <input type="time" name="time_for_appointment" value="" class="form-control">
+                            <input type="file" id="myfile" name="image" class="form-control">
                         </div>
 
                         <div class="col-md-12 col-sm-12">

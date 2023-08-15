@@ -6,15 +6,14 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-{{--                        <h3><a href="{{ route('ambulance.index') }}">Ambulance</a></h3><br>--}}
-                        <h3>Ambulance</h3>
-                        <a class="btn btn-outline-primary " href="{{route('admin.ambulance.create')}}" role="button">Create Ambulance</a>
+                        <h3>Schedule Management</h3><br>
+                        <a class="btn btn-outline-primary " href="{{ route('admin.scheduleManagement.create') }}" role="button">Create Schedule Management</a>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('admin.home')}}"><i class="fa fa-home"></i>Home</a>
                             </li>
-                            <li class="breadcrumb-item active">Ambulance</li>
+                            <li class="breadcrumb-item active">Schedule Management</li>
                         </ol>
                     </div>
                 </div>
@@ -28,14 +27,14 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Ambulance Information</h3>
+                                <h3 class="card-title">Schedule Management Information</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
                                 {{--                                <div class="row">--}}
                                 {{--                                    <div class="col-md-12">--}}
                                 {{--                                        <div class="text-center">--}}
-                                {{--                                            {{ $ambulances->links() }}--}}
+                                {{--                                            {{ $scheduleManagements->links() }}--}}
                                 {{--                                        </div>--}}
                                 {{--                                    </div>--}}
                                 {{--                                </div>--}}
@@ -43,38 +42,37 @@
                                     <thead>
                                     <tr class="text-center">
                                         <th>ID</th>
-                                        <th>Ambulance Name</th>
-                                        <th>Phone Number</th>
+                                        <th>Specialist</th>
+                                        <th>Time For Appointment</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @forelse($ambulances as $ambulance)
+                                    @forelse($scheduleManagements as $scheduleManagement)
                                         <tr>
-                                            <td>{{$ambulance->id}}</td>
-                                            <td>{{$ambulance->ambulance_name}}</td>
-                                            <td>{{$ambulance->phone_number}}</td>
-
+                                            <td>{{$scheduleManagement->id}}</td>
+                                            <td>{{$scheduleManagement->specialist->specialist_name??'Designation' }}</td>
+                                            <td>{{$scheduleManagement->time_for_appointment}}</td>
                                             <td>
-                                                {!! $ambulance->status ?'<span class="badge badge-success">Active</span>':'<span class="badge badge-danger">InActive</span>' !!}
+                                                {!! $scheduleManagement->status ?'<span class="badge badge-success">Active</span>':'<span class="badge badge-danger">InActive</span>' !!}
                                             </td>
 
                                             <td>
                                                 <div class="row">
-                                                    <a class="btn btn-success" href="{{route('admin.ambulance.edit',$ambulance->id)}}">
+                                                    <a class="btn btn-success" href="{{route('admin.scheduleManagement.edit',$scheduleManagement->id)}}">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
-{{--                                                    <form action="{{route('ambulance.destroy',$ambulance->id)}}" method="POST">--}}
+{{--                                                    <form action="{{route('scheduleManagement.destroy',$scheduleManagement->id)}}" method="POST">--}}
 {{--                                                        @csrf--}}
 {{--                                                        @method('DELETE')--}}
 {{--                                                        <button type="submit" class="btn btn-danger">--}}
 {{--                                                            <i class="fa fa-trash"></i>--}}
 {{--                                                        </button>--}}
 {{--                                                    </form>--}}
-                                                    <a href="javascript:void(0)" onclick="var c = confirm('{{ "Are you sure?" }}'); if(c){document.getElementById('delete-{{$ambulance->id}}').submit();}" class="btn btn-sm swalDefaultQuestion btn-danger">
+                                                    <a href="javascript:void(0)" onclick="var c = confirm('{{ "Are you sure?" }}'); if(c){document.getElementById('delete-{{$scheduleManagement->id}}').submit();}" class="btn btn-sm swalDefaultQuestion btn-danger">
                                                         <i class="fa fa-trash"></i>
-                                                        <form id="delete-{{$ambulance->id}}" action="{{ route('admin.ambulance.destroy',$ambulance->id) }}" method="POST"  style="display: none;">
+                                                        <form id="delete-{{$scheduleManagement->id}}" action="{{ route('admin.scheduleManagement.destroy',$scheduleManagement->id) }}" method="POST"  style="display: none;">
                                                             @method('DELETE')
                                                             @csrf
                                                         </form>
@@ -89,6 +87,7 @@
                                             No data found ..
                                         </td>
                                     @endforelse
+
 
                                     </tbody>
                                     {{--            <tfoot>--}}
@@ -122,7 +121,7 @@
     <!-- jQuery -->
     <script src="{{asset('backend/admin/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap 4 -->
-    <script src="{{asset('backend/admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <!-- DataTables  & Plugins -->
     <script src="{{asset('backend/admin/plugins/datatables/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('backend/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
@@ -137,9 +136,9 @@
     <script src="{{asset('backend/admin/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
     <script src="{{asset('backend/admin/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
     <!-- AdminLTE App -->
-    <script src="{{asset('backend/admin/dist/js/adminlte.min.js')}}"></script>
+    <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="{{asset('backend/admin/dist/js/demo.js')}}"></script>
+    <script src="{{asset('dist/js/demo.js')}}"></script>
     <!-- Page specific script -->
     <!-- Page specific script -->
     <script>

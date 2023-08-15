@@ -87,12 +87,21 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item {{request()->is('scheduleManagement*')?'menu-open':''}}">
+                    <a href="{{route('admin.scheduleManagement.index')}}" class="nav-link {{request()->is('scheduleManagement*')?'active':''}}">
+                        {{--                        <i class="fas fa-phone-volume"></i>--}}
+                        <i class="far fa-calendar-alt"></i>
+                        <p>
+                            Schedule Management
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item {{request()->is('appointment*')?'menu-open':''}}">
                     <a href="{{route('admin.appointment.index')}}" class="nav-link {{request()->is('appointment*')?'active':''}}">
 {{--                        <i class="fas fa-phone-volume"></i>--}}
                         <i class="far fa-calendar-alt"></i>
                         <p>
-                           Appointment
+                          Patient Appointment
                         </p>
                     </a>
                 </li>
@@ -150,12 +159,11 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item {{request()->is('ambulance*')?'menu-open':''}}">
-                    <a href="{{route('admin.ambulance.index')}}" class="nav-link {{request()->is('ambulance*')?'active':''}}">
-                        <i class=" fa fa-ambulance	"></i>
+                <li class="nav-item {{request()->is('feedback*')?'menu-open':''}}">
+                    <a href="{{route('admin.feedback.index')}}" class="nav-link {{request()->is('feedback*')?'active':''}}">
+                        <i class="fas fa-pen-alt"></i>
                         <p>
-                           Ambulance
-
+                          Feedback
                         </p>
                     </a>
                 </li>

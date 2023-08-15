@@ -78,6 +78,9 @@
             </div>
 
             <!-- Radio Buttons for Rating-->
+            <form id="appointment-form" role="form" method="post" action="{{route('feedback.store')}}">
+
+                @csrf
             <div class="form-check mb-4">
                 <input name="feedback" type="radio">
                 <label class="ml-3">Very good</label>
@@ -98,24 +101,29 @@
                 <input name="feedback" type="radio">
                 <label class="ml-3">Very Bad</label>
             </div>
+                <!--Text Message-->
+                <div class="text-center">
+                    <h4>What could we improve?</h4>
+                </div>
 
-            <!--Text Message-->
-            <div class="text-center">
-                <h4>What could we improve?</h4>
-            </div>
-            <textarea type="textarea" placeholder="Your Message" rows="3"></textarea>
+                <textarea name="message" type="textarea" placeholder="Your Message" rows="3"></textarea>
+
+
+                <div class="modal-footer">
+                    <button type="submit"  class="btn btn-primary">Send
+                        <i class="fa fa-paper-plane"></i>
+                    </button>
+                    <a href="" class="btn btn-outline-primary" data-dismiss="modal">Cancel</a>
+                </div>
+            </form>
+
+
 
 
             <!-- Modal Footer-->
-            <div class="modal-footer">
-                <a href="" class="btn btn-primary">Send
-                    <i class="fa fa-paper-plane"></i>
-                </a>
-                <a href="" class="btn btn-outline-primary" data-dismiss="modal">Cancel</a>
-            </div>
+
 
         </div>
-
     </div>
 
 </div>
