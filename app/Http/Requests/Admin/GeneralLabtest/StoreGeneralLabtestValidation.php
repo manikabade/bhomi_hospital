@@ -25,9 +25,9 @@ class StoreGeneralLabtestValidation extends FormRequest
     {
         $this->customValidation();
         return [
-            'patient_id'         => ['required','patient_id_validation'],
+            'appointment_id'     => ['required','appointment_id_validation'],
             'general_labtest'    => ['required','string'],
-            'report'              =>['required','string'],
+            'report'             =>['required','string'],
             'remarks'            =>['required','string'],
             'status'             => ['nullable', 'boolean'],
         ];

@@ -125,14 +125,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item {{request()->is('patient*')?'menu-open':''}}">
-                    <a href="{{route('admin.patient.index')}}" class="nav-link {{request()->is('patient*')?'active':''}}">
-                        <i class="fas fa-user-alt"></i>
-                        <p>
-                           Patient
-                        </p>
-                    </a>
-                </li>
+
                 <li class="nav-item {{request()->is('generalLabtest*')?'menu-open':''}}">
                     <a href="{{route('admin.generalLabtest.index')}}" class="nav-link {{request()->is('generalLabtest*')?'active':''}}">
                         <i class="fas fa-notes-medical"></i>

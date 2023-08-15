@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('medical_reports', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('patient_id')->constrained('patients')->cascadeOnDelete();
+            $table->foreignId('appointment_id')->constrained('appointments')->cascadeOnDelete();
             $table->foreignId('general_labtest_id')->constrained('general_labtests')->cascadeOnDelete();
             $table->string('precaution');
             $table->boolean('status')->default(0);

@@ -12,18 +12,20 @@ class MedicalReport extends BaseModel
     use HasFactory;
 
     protected $fillable = [
-        'patient_id',
+        'appointment_id',
         'general_labtest_id',
         'precaution',
         'status'
     ];
 
-    public function patient(): BelongsTo
+    public function appointment(): BelongsTo
     {
-        return $this->belongsTo(Patient::class, 'patient_id');
+        return $this->belongsTo(Appointment::class);
     }
     public function generallabtest():BelongsTo
     {
-        return $this->belongsTo(GeneralLabtest::class, 'general_labtest_id');
+        return $this->belongsTo(GeneralLabtest::class,'general_labtest_id');
     }
+
+
 }

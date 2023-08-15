@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\MedicalReport\StoreMedicalReportValidation;
 use App\Http\Requests\Admin\MedicalReport\UpdateMedicalReportValidation;
+use App\Models\Admin\Appointment;
 use App\Models\Admin\GeneralLabtest;
 use App\Models\Admin\MedicalReport;
 use App\Models\Admin\Patient;
@@ -32,7 +33,7 @@ class MedicalReportController extends Controller
     {
 //        $medicalReports['patients'] = Patient::active()
 //            ->pluck('license_key' ,'id');
-       $medicalReports['patients']=Patient::select('patient_name','id')->active()->get();
+       $medicalReports['appointments']=Appointment::select('patient_name','id')->active()->get();
        $medicalReports['general_labtests']=GeneralLabtest::select('general_labtest','id','remarks','report')->active()->get();
         return view('admin.medicalReport.create',compact('medicalReports'));
     }
@@ -62,7 +63,7 @@ class MedicalReportController extends Controller
      */
     public function edit(string $id)
     {
-        $medicalReports['patients']=Patient::select('patient_name','id')->active()->get();
+        $medicalReports['appointments']=Appointment::select('patient_name','id')->active()->get();
         $medicalReports['general_labtests']=GeneralLabtest::select('general_labtest','id','remarks','report')->active()->get();
         $data=[];
         $data['row']=MedicalReport::find($id);

@@ -1,6 +1,7 @@
 <?php
 namespace App\Traits;
 
+use App\Models\Admin\Appointment;
 use App\Models\Admin\Designation;
 use App\Models\Admin\GeneralLabtest;
 use App\Models\Admin\Specialist;
@@ -14,7 +15,7 @@ trait CustomValidationTrait{
     public function customValidation()
     {
         $this->foreignIdValidation('user_id_validation',User::class);
-        $this->foreignIdValidation('patient_id_validation', Patient::class);
+        $this->foreignIdValidation('appointment_id_validation', Appointment::class);
         $this->foreignIdValidation('specialist_id_validation', Specialist::class);
         $this->foreignIdValidation('designation_id_validation', Designation::class);
         $this->foreignIdValidation('general_labtest_id_validation', GeneralLabtest::class);

@@ -6,6 +6,8 @@ use App\Models\BaseModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Appointment extends BaseModel
 {
@@ -29,5 +31,15 @@ class Appointment extends BaseModel
     public function specialist(): BelongsTo
     {
         return $this->belongsTo(Specialist::class, 'specialist_id');
+    }
+
+    public function MedicalReport(): BelongsTo
+    {
+        return $this->belongsTo(MedicalReport::class, 'id','appointment_id');
+    }
+
+    public function generallabtest():BelongsTo
+    {
+        return $this->belongsTo(GeneralLabtest::class,'id','appointment_id');
     }
 }

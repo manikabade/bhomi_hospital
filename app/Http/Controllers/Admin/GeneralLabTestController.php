@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\GeneralLabtest\StoreGeneralLabtestValidation;
 use App\Http\Requests\Admin\GeneralLabtest\UpdateGeneralLabtestValidation;
+use App\Models\Admin\Appointment;
 use App\Models\Admin\GeneralLabtest;
 use App\Models\Admin\Patient;
 use Illuminate\Http\Request;
@@ -32,7 +33,7 @@ class GeneralLabTestController extends Controller
      */
     public function create()
     {
-        $generalLabtests['patients']=Patient::select('patient_name','id')->active()->get();
+        $generalLabtests['appointments']=Appointment::select('patient_name','id')->active()->get();
         return view('admin.generalLabtest.create',compact('generalLabtests'));
     }
 
@@ -61,7 +62,7 @@ class GeneralLabTestController extends Controller
      */
     public function edit(string $id)
     {
-        $generalLabtests['patients']=Patient::select('patient_name','id')->active()->get();
+        $generalLabtests['appointments']=Appointment::select('patient_name','id')->active()->get();
         $data = [];
         $data['row']=GeneralLabtest::find($id);
         return view('admin.generalLabtest.edit',compact('data','generalLabtests'));

@@ -72,11 +72,10 @@ class HomeController extends Controller
     public function filtermedical(Request $request)
     {
         $id =$request->id;
-        $token =$request->token;
+        $date =$request->date_of_birth;
 
         $response =[];
-        $data=Patient::with('medicalReport')->where('id',$id)->where('security_token',$token)->get();
-
+        $data=Appointment::with('medicalReport')->where('id',$id)->where('date_of_birth', $date)->get();
         $response['html'] =view('filter_medical',compact('data'))->render();
 
 
