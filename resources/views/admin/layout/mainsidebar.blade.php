@@ -101,7 +101,7 @@
 {{--                        <i class="fas fa-phone-volume"></i>--}}
                         <i class="far fa-calendar-alt"></i>
                         <p>
-                          Patient Appointment
+                           Appointment
                         </p>
                     </a>
                 </li>
