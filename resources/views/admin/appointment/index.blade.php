@@ -76,9 +76,6 @@
 
                                             <td>{{ $medicalReport->scheduleManagement->time_for_appointment?? 'Time For Appointment' }}</td>
                                             <td>{{$appointment->message}}</td>
-
-                                            <td>{{$appointment->image}}</td>
-
                                             <td>
 
                                                 <img height="100px" width="100px" src="{{asset('images/appointment/'.$appointment->image)}}">
