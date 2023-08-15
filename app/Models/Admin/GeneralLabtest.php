@@ -12,15 +12,15 @@ class GeneralLabtest extends BaseModel
     use HasFactory;
 
     protected $fillable = [
-        'patient_id',
+        'appointment_id',
         'general_labtest',
         'report',
         'remarks',
         'status'
     ];
 
-    public function patient(): BelongsTo
-    {
-        return $this->belongsTo(Patient::class, 'patient_id');
-    }
+//    public function patient(): BelongsTo
+//    {
+//        return $this->belongsTo(Patient::class, 'patient_id');
+//    }
 }

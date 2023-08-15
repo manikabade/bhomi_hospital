@@ -3,15 +3,15 @@
         <div class="form-group">
             <label for="patient_id">Patient Name</label>
 
-            <select name="patient_id" value="{{ old('patient_id', $medicalReport->patient_id ?? '') }}"
-                    class="form-control @error('patient_id')is-invalid @enderror" id="patientId"
+            <select name="appointment_id" value="{{ old('appointment_id', $medicalReport->appointment_id ?? '') }}"
+                    class="form-control @error('appointment_id')is-invalid @enderror" id="appointmentId"
                     placeholder="Patient Name">
                 <option>--Select Patient Name--</option>
-                @foreach($medicalReports['patients'] as $patient)
-                    <option id="patient_id" value="{{$patient->id}}" selected="selected">{{$patient->patient_name}}</option>
+                @foreach($medicalReports['appointments'] as $appointment)
+                    <option id="appointment_id" value="{{$appointment->id}}" selected="selected">{{$appointment->patient_name}}</option>
                 @endforeach
             </select>
-            @error('patient_id')
+            @error('appointment_id')
             <span class="error invalid-feedback">
                    {{ $message }}
                 </span>

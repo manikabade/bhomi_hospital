@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+
 class Appointment extends BaseModel
 {
     use HasFactory;
@@ -33,5 +34,15 @@ class Appointment extends BaseModel
     public function schedulemanagement():BelongsTo
     {
         return $this->belongsTo(ScheduleManagement::class, 'schedule_management_id');
+    }
+
+    public function MedicalReport(): BelongsTo
+    {
+        return $this->belongsTo(MedicalReport::class, 'id','appointment_id');
+    }
+
+    public function generallabtest():BelongsTo
+    {
+        return $this->belongsTo(GeneralLabtest::class,'id','appointment_id');
     }
 }
