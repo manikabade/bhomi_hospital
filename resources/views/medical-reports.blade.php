@@ -22,7 +22,7 @@
                     <div class="report-info">
                         <div class="wow fadeInUp" data-wow-delay="0.8s">
                             <input type="text" id="id" placeholder="id">
-                            <input type="text"  id="token_no" placeholder="Token No.">
+                            <input type="string"  id="date_of_birth" placeholder="Date Of Birth">
                         </div>
                         <div>
                             <button id="submit-update" onclick="openTable()" type="submit">Submit</button>
@@ -64,7 +64,7 @@
    function openTable(){
 
         var id = $('#id').val()
-        var token_no = $('#token_no').val();
+       var date_of_birth = $('#date_of_birth').val();
 
         $.ajax({
             method:'POST',
@@ -72,7 +72,7 @@
             data:{
                 '_token':'{{csrf_token()}}',
                 'id':id,
-                'token':token_no,
+                'date_of_birth':date_of_birth,
 
             },
 

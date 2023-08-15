@@ -57,7 +57,7 @@
                                             <td>{{ $generalLabtest->patient->patient_name?? 'Patient Name' }}</td>
                                             <td>{{ $generalLabtest->general_labtest}}</td>
                                             <td>{{ $generalLabtest->report}}</td>
-                                            <td>{{ $generalLabtest->remarks}}</td>
+                                            <td>{!! $generalLabtest->remarks !!}</td>
                                             <td>
                                                 {!! $generalLabtest->status ?'<span class="badge badge-success">Active</span>':'<span class="badge badge-danger">InActive</span>' !!}
                                             </td>

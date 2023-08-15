@@ -11,15 +11,11 @@
 
     <th>{{$key+1}}</th>
     <th>{{$_data->patient_name}}</th>
-    <th>Precaution</th>
-    <th>General Lab Test</th>
-    @forelse($_data->medicalReport  as $medicalreport)
-    <th>{{$medicalreport['general_labtest_id']}}</th>
-    @empty
-        <th>No Lab Test</th>
-    @endforelse
-{{--    <th>{{$_data->medicalReport->generallabtest->general_labtest}}</th>--}}
-    <th>Remarks</th>
+    <th>{{$_data->medicalReport['precaution']}}</th>
+    <th>{{$_data->generallabtest['general_labtest']}}</th>
+    <th>{{$_data->generallabtest['report']}}</th>
+    {{--    <th>{!!$_data->generallabtest['remarks'] !!}</th>--}}
+    <th>{{strip_tags($_data->generallabtest['remarks'])}}</th>
 @empty
     <th colspan="6">No Data Found</th>
 @endforelse
