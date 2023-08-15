@@ -1,12 +1,17 @@
 <div class="row">
     <div class="col-sm-6">
         <div class="form-group">
-            <label for="ambulance_name">Ambulance Name</label>
-            {!! Form::text('ambulance_name',$data['row']->ambulance_name??null,[
-                'class'=> $errors->has('ambulance_name')?'form-control is-invalid':'form-control',
-                    'placeholder'=>'Enter Ambulance Name',
-               ]) !!}
-            @error('ambulance_name')
+            <label for="specialist_id">Specailist Name</label>
+
+            <select name="specialist_id" value="{{ old('specialist_id', $scheduleManagement->specialist_id ?? '') }}"
+                    class="form-control @error('specialist_id')is-invalid @enderror" id="specialistId"
+                    placeholder="Specailist Name">
+                <option>--Select Specailist Name--</option>
+                @foreach($scheduleManagements['specialists'] as $specialist)
+                    <option id="specialist_id" value="{{$specialist->id}}" selected="selected">{{$specialist->specialist_name}}</option>
+                @endforeach
+            </select>
+            @error('specialist_id')
             <span class="error invalid-feedback">
                    {{ $message }}
                 </span>
@@ -16,12 +21,12 @@
 
     <div class="col-sm-6">
         <div class="form-group">
-            <label for="phone_number">Phone Number</label>
-            {!! Form::text('phone_number',$data['row']->phone_number??null,[
-                'class'=> $errors->has('phone_number')?'form-control is-invalid':'form-control',
-                    'placeholder'=>'Enter Phone Number',
+            <label for="time_for_appointment">Time For Appointment</label>
+            {!! Form::text('time_for_appointment',$data['row']->time_for_appointment??null,[
+                'class'=> $errors->has('time_for_appointment')?'form-control is-invalid':'form-control',
+                    'placeholder'=>'Enter Time For Appointment',
                ]) !!}
-            @error('phone_number')
+            @error('time_for_appointment')
             <span class="error invalid-feedback">
                    {{ $message }}
                 </span>
@@ -29,9 +34,7 @@
         </div>
     </div>
 
-
-
-    <div class="col-sm-6">
+    <div class="col-sm-12">
         <div class="form-group">
             <label class="">Status</label>
             <div class="form-check">
@@ -53,9 +56,12 @@
     </div>
 
 
+
 </div>
+
 
 
 <div class="card-footer">
-    <button type="submit" class="btn btn-primary">Submit Ambulance</button>
+    <button type="submit" class="btn btn-primary">Submit Schedule Management</button>
 </div>
+

@@ -22,8 +22,8 @@ return new class extends Migration
             $table->integer('age');
             $table->string('patient_address');
             $table->string('blood_group');
-            $table->date('appointment_date')->unique();
-            $table->time('time_for_appointment')->unique();
+            $table->date('appointment_date');
+            $table->foreignId('schedule_management_id')->constrained('schedule_management')->cascadeOnDelete();
             $table->string('image')->nullable();
             $table->longText('message')->nullable();
             $table->boolean('status')->default(0);

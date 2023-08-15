@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Requests\Admin\Ambulance;
+namespace App\Http\Requests\Admin\Feedback;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreAmbulanceValidation extends FormRequest
+class StoreFeedbackValidation extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -17,13 +17,13 @@ class StoreAmbulanceValidation extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\Rule|array|string>
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
      */
     public function rules()
     {
         return [
-            'phone_number'                 => ['required','string'],
-            'ambulance_name'               => ['required','string'],
+            'feedback'                     => ['required','string'],
+            'message'                     => ['nullable','string'],
             'status'                       => ['nullable', 'boolean'],
         ];
     }

@@ -25,7 +25,7 @@
                 <li><a href="{{request()->is('/')?"#google-map":$_url."#google-map"}}" class="smoothScroll">Contact</a></li>
                 <li class="appointment-btn"><a href="{{request()->is('/')?"#appointment":$_url."#appointment"}}">Make an Appointment</a></li>
                 <li class="report-btn"><a href={{route('medical.reports')}}>Medical Report</a></li>
-                <li class="ambulance-btn"><a href="ambulance.html">Ambulance</a></li>
+                <li class="ambulance-btn"><a href={{route('ambulance')}}>Ambulance</a></li>
             </ul>
         </div>
 

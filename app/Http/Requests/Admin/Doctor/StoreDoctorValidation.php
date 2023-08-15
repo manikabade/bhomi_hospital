@@ -27,7 +27,7 @@ class StoreDoctorValidation extends FormRequest
         return [
             'doctor_name'                  => ['required','string'],
             'email'                        => ['nullable','string'],
-            'phone_number'                 => ['required','integer'],
+            'phone_number'                 => ['required','string'],
             'gender'                       => ['required','string'],
             'date_of_birth'                => ['required','date'],
             'hospital_name'                => ['required','string'],

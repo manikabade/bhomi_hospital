@@ -34,10 +34,13 @@ class UpdateAppointmentValidation extends FormRequest
             'patient_address'               => ['required','string'],
             'blood_group'                  => ['required','string'],
             'specialist_id'                => ['required','specialist_id_validation'],
+//            'appointment_date'             => ['required','date'],
             'appointment_date'             => ['required','date'],
-            'time_for_appointment'         => ['required','date_format:H:i:s'],
+//            'time_for_appointment'         => ['required','date_format:H:i:s'],
 //           'time_for_appointment'         => ['required','date_format:H:i'],
+            'schedule_management_id'         => ['required','schedule_management_id_validation'],
             'main_photo'                    => ['nullable'],
+            'message'                      => ['required','string'],
             'status'                       => ['nullable', 'boolean'],
         ];
     }

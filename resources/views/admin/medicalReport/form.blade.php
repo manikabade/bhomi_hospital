@@ -24,13 +24,13 @@
 
             <select name="general_labtest_id" value="{{ old('general_labtest_id', $medicalReport->general_labtest_id ?? '') }}"
                     class="form-control @error('general_labtest_id')is-invalid @enderror" id="patientId"
-                    placeholder="Patient Name">
+                    placeholder="General Lab Test">
                 <option>--Select General Lab Test--</option>
                 @foreach($medicalReports['general_labtests'] as $generalLabtest)
                     <option id="general_labtest" value="{{$generalLabtest->id}}" selected="selected">{{$generalLabtest->general_labtest}}</option>
                 @endforeach
             </select>
-            @error('patient_id')
+            @error('general_labtest_id')
             <span class="error invalid-feedback">
                    {{ $message }}
                 </span>

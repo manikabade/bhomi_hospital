@@ -21,7 +21,7 @@ class Appointment extends BaseModel
         'blood_group',
         'specialist_id',
         'appointment_date',
-        'time_for_appointment',
+        'schedule_management_id',
         'image',
         'message',
         'status',
@@ -29,5 +29,9 @@ class Appointment extends BaseModel
     public function specialist(): BelongsTo
     {
         return $this->belongsTo(Specialist::class, 'specialist_id');
+    }
+    public function schedulemanagement():BelongsTo
+    {
+        return $this->belongsTo(ScheduleManagement::class, 'schedule_management_id');
     }
 }

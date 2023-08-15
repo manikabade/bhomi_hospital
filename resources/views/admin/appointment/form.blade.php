@@ -1,3 +1,4 @@
+{{$errors}}
 <div class="row">
     <div class="col-sm-6">
         <div class="form-group">
@@ -160,22 +161,42 @@
 
     <div class="col-sm-6">
         <div class="form-group">
-            <label for="time_for_appointment">Time For Appointment</label>
-            {!! Form::time('time_for_appointment',$data['row']->time_for_appointment??null,[
-                'class'=> $errors->has('time_for_appointment')?'form-control is-invalid':'form-control',
-                    'placeholder'=>'Enter Time For Appointment',
-               ]) !!}
-            @error('time_for_appointment')
+            <label for="schedule_management_id">Time For Appointment</label>
+
+            <select name="schedule_management_id" value="{{ old('schedule_management_id', $appointment->schedule_management_id ?? '') }}"
+                    class="form-control @error('schedule_management_id')is-invalid @enderror" id="patientId"
+                    placeholder="Patient Name">
+                <option>--Select Time for Appointment--</option>
+                @foreach($appointments['schedule_managements'] as $scheduleManagement)
+                    <option id="schedule_management" value="{{$scheduleManagement->id}}" selected="selected">{{$scheduleManagement->time_for_appointment}}</option>
+                @endforeach
+            </select>
+            @error('schedule_management_id')
             <span class="error invalid-feedback">
                    {{ $message }}
                 </span>
             @enderror
         </div>
     </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="message">Additional Message</label>
+            {!! Form::textarea('message',$data['row']->message??null,[
+                  'class'=> $errors->has('message')?'form-control is-invalid':'form-control',
+                  'placeholder'=>'Additional Message',
+                  'id' => 'summernote'
+                  ]) !!}
+            @error('message')
+            <span class="help-block invalid-feedback">
+                     <strong> {{ $message }} </strong>
+                    </span>
+            @enderror
+        </div>
+    </div>
     <div class="row">
         <div class="col-sm-9">
             <div class="form-group">
-                <label for="main_photo">Image</label>
+                <label for="main_photo">Voucher Image</label>
                 {!! Form::file('main_photo',[
                     'class'=> $errors->has('main_photo')?'form-control is-invalid':'form-control',
                         'placeholder'=>'Enter Image',

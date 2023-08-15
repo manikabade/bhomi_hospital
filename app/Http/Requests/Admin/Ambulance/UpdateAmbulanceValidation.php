@@ -22,7 +22,8 @@ class UpdateAmbulanceValidation extends FormRequest
     public function rules()
     {
         return [
-            'phone_number'                => ['required','integer'],
+            'phone_number'                 => ['required','string'],
+            'ambulance_name'               => ['required','string'],
             'status'                       => ['nullable', 'boolean'],
         ];
     }

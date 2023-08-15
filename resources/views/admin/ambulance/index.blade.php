@@ -43,7 +43,8 @@
                                     <thead>
                                     <tr class="text-center">
                                         <th>ID</th>
-                                        <th>Phone number</th>
+                                        <th>Ambulance Name</th>
+                                        <th>Phone Number</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -52,6 +53,7 @@
                                     @forelse($ambulances as $ambulance)
                                         <tr>
                                             <td>{{$ambulance->id}}</td>
+                                            <td>{{$ambulance->ambulance_name}}</td>
                                             <td>{{$ambulance->phone_number}}</td>
 
                                             <td>

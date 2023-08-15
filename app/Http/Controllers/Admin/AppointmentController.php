@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Appointment\StoreAppointmentValidation;
 use App\Http\Requests\Admin\Appointment\UpdateAppointmentValidation;
 use App\Models\Admin\Appointment;
+use App\Models\Admin\ScheduleManagement;
 use App\Models\Admin\Specialist;
 use Illuminate\Http\Request;
 
@@ -33,6 +34,7 @@ class AppointmentController extends Controller
     public function create()
     {
         $appointments['specialists']=Specialist::select('specialist_name','id')->active()->get();
+        $appointments['schedule_managements']=ScheduleManagement::select('time_for_appointment','id',)->active()->get();
         $edit =0;
         return view('admin.appointment.create',compact('appointments','edit'));
     }
@@ -64,7 +66,8 @@ class AppointmentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data['row']=Appointment::find($id);
+        return view('admin.appointment.show',compact('data'));
     }
 
     /**
@@ -73,6 +76,8 @@ class AppointmentController extends Controller
     public function edit(string $id)
     {
         $appointments['specialists']=Specialist::select('specialist_name','id')->active()->get();
+        $appointments['schedule_managements']=ScheduleManagement::select('time_for_appointment','id',)->active()->get();
+
         $data=[];
         $data['row']=Appointment::find($id);
         $edit =1;

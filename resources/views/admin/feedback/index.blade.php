@@ -6,14 +6,15 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h3>Appointment</h3><br>
-                        <a class="btn btn-outline-primary " href="{{route('admin.appointment.create')}}" role="button">Create Appointment</a>
+{{--                        <h3><a href="{{ route('feedback.index') }}">Feedback</a></h3><br>--}}
+                        <h3>Feedback</h3>
+{{--                        <a class="btn btn-outline-primary " href="{{route('admin.feedback.create')}}" role="button">Create Feedback</a>--}}
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('admin.home')}}"><i class="fa fa-home"></i>Home</a>
                             </li>
-                            <li class="breadcrumb-item active">Appointment</li>
+                            <li class="breadcrumb-item active">Feedback</li>
                         </ol>
                     </div>
                 </div>
@@ -27,14 +28,14 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Appointment Information</h3>
+                                <h3 class="card-title">Feedback Information</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
                                 {{--                                <div class="row">--}}
                                 {{--                                    <div class="col-md-12">--}}
                                 {{--                                        <div class="text-center">--}}
-                                {{--                                            {{ $appointments->links() }}--}}
+                                {{--                                            {{ $feedbacks->links() }}--}}
                                 {{--                                        </div>--}}
                                 {{--                                    </div>--}}
                                 {{--                                </div>--}}
@@ -42,87 +43,62 @@
                                     <thead>
                                     <tr class="text-center">
                                         <th>ID</th>
-                                        <th>Patient Name</th>
-                                        <th>Email</th>
-                                        <th>Phone Number</th>
-                                        <th>Gender</th>
-                                        <th>Date of Birth</th>
-                                        <th>Age</th>
-                                        <th>Patient Address</th>
-                                        <th>Blood Group</th>
-                                        <th>Specialist</th>
-                                        <th>Appointment Date</th>
-                                        <th>Time For Appointment</th>
-                                        <th>Additional Message</th>
-                                        <th>Voucher Image</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
+                                        <th>Feedback</th>
+                                        <th>Message</th>
+{{--                                        <th>Status</th>--}}
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @forelse($appointments as $appointment)
+                                    @forelse($feedbacks as $feedback)
                                         <tr>
-                                            <td>{{$appointment->id}}</td>
-                                            <td>{{$appointment->patient_name}}</td>
-                                            <td>{{$appointment->email}}</td>
-                                            <td>{{$appointment->phone_number}}</td>
-                                            <td>{{$appointment->gender}}</td>
-                                            <td>{{$appointment->date_of_birth}}</td>
-                                            <td>{{$appointment->age}}</td>
-                                            <td>{{$appointment->patient_address}}</td>
-                                            <td>{{$appointment->blood_group}}</td>
-                                            <td>{{$appointment->specialist->specialist_name?? 'Specialist' }}</td>
-                                            <td>{{$appointment->appointment_date}}</td>
+                                            <td>{{$feedback->id}}</td>
+                                            <td>{{$feedback->feedback}}</td>
+                                            <td>{{$feedback->message}}</td>
 
-                                            <td>{{ $medicalReport->scheduleManagement->time_for_appointment?? 'Time For Appointment' }}</td>
-                                            <td>{{$appointment->message}}</td>
+{{--                                            <td>--}}
+{{--                                                {!! $feedback->status ?'<span class="badge badge-success">Read Feedback</span>':'<span class="badge badge-danger">Unread Feedback </span>' !!}--}}
+{{--                                            </td>--}}
 
-                                            <td>{{$appointment->image}}</td>
-
-                                            <td>
-
-                                                <img height="100px" width="100px" src="{{asset('images/appointment/'.$appointment->image)}}">
-                                            </td>
-
-                                            <td>
-                                                {!! $appointment->status ?'<span class="badge badge-success">Active</span>':'<span class="badge badge-danger">InActive</span>' !!}
-                                            </td>
-
-                                            <td>
-                                                <div class="row">
-                                                    <a class="btn btn-success" href="{{route('admin.appointment.edit',$appointment->id)}}">
-                                                        <i class="fa fa-edit"></i>
-                                                    </a>
-                                                    <a href="javascript:void(0)" onclick="var c = confirm('{{ "Are you sure?" }}'); if(c){document.getElementById('delete-{{$appointment->id}}').submit();}" class="btn btn-sm swalDefaultQuestion btn-danger">
-                                                            <i class="fa fa-trash"></i>
-                                                        <form id="delete-{{$appointment->id}}" action="{{ route('admin.appointment.destroy',$appointment->id) }}" method="POST"  style="display: none;">
-                                                            @method('DELETE')
-                                                            @csrf
-                                                        </form>
-                                                        <a class="btn btn-primary" href="{{route('admin.appointment.show',$appointment->id)}}">
-                                                            <i class="fas fa-eye"></i>
-                                                        </a>
-                                                    </a>
-{{--                                                    <form action="{{route('patient.destroy',$patient->id)}}" method="POST">--}}
+{{--                                            <td>--}}
+{{--                                                <div class="row">--}}
+{{--                                                    <a class="btn btn-success" href="{{route('admin.feedback.edit',$feedback->id)}}">--}}
+{{--                                                        <i class="fa fa-edit"></i>--}}
+{{--                                                    </a>--}}
+{{--                                                    <form action="{{route('feedback.destroy',$feedback->id)}}" method="POST">--}}
 {{--                                                        @csrf--}}
 {{--                                                        @method('DELETE')--}}
 {{--                                                        <button type="submit" class="btn btn-danger">--}}
 {{--                                                            <i class="fa fa-trash"></i>--}}
 {{--                                                        </button>--}}
 {{--                                                    </form>--}}
-                                                </div>
+{{--                                                    <a href="javascript:void(0)" onclick="var c = confirm('{{ "Are you sure?" }}'); if(c){document.getElementById('delete-{{$feedback->id}}').submit();}" class="btn btn-sm swalDefaultQuestion btn-danger">--}}
+{{--                                                        <i class="fa fa-trash"></i>--}}
+{{--                                                        <form id="delete-{{$feedback->id}}" action="{{ route('admin.feedback.destroy',$feedback->id) }}" method="POST"  style="display: none;">--}}
+{{--                                                            @method('DELETE')--}}
+{{--                                                            @csrf--}}
+{{--                                                        </form>--}}
+{{--                                                    </a>--}}
+{{--                                                </div>--}}
 
-                                            </td>
+{{--                                            </td>--}}
 
                                         </tr>
                                     @empty
-                                        <td colspan="15" style="text-align: center">
+                                        <td colspan="13" style="text-align: center">
                                             No data found ..
                                         </td>
                                     @endforelse
 
                                     </tbody>
-
+                                    {{--            <tfoot>--}}
+                                    {{--            <tr>--}}
+                                    {{--                <th>Rendering engine</th>--}}
+                                    {{--                <th>Browser</th>--}}
+                                    {{--                <th>Platform(s)</th>--}}
+                                    {{--                <th>Engine version</th>--}}
+                                    {{--                <th>CSS grade</th>--}}
+                                    {{--            </tr>--}}
+                                    {{--            </tfoot>--}}
                                 </table>
                             </div>
                         </div>
@@ -143,7 +119,7 @@
 @section('js')
     {{--<!-- DataTables  & Plugins -->--}}
     <!-- jQuery -->
-    <script src="{{asset('backend/admin/backend/admin/plugins/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('backend/admin/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap 4 -->
     <script src="{{asset('backend/admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <!-- DataTables  & Plugins -->
