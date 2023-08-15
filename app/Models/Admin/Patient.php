@@ -6,11 +6,13 @@ use App\Models\BaseModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Patient extends BaseModel
 {
     use HasFactory;
     protected $fillable=[
+        'id',
         'patient_name',
         'email',
         'phone_number',
@@ -29,6 +31,10 @@ class Patient extends BaseModel
     public function specialist(): BelongsTo
     {
         return $this->belongsTo(Specialist::class, 'specialist_id');
+    }
+    public function medicalReport(): HasMany
+    {
+        return $this->hasMany(MedicalReport::class, 'patient_id','id');
     }
 }
 

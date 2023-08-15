@@ -89,8 +89,10 @@
                         </div>
 
                         <div class="col-md-6 col-sm-6">
-                            <label for="voucherimage">Voucher Image</label>
-                            <input type="file" id="myfile" name="image" class="form-control">
+
+              <label for="image">Voucher Image</label>
+                            <input type="file" id="myFile" name="image" class="form-control">
+
                         </div>
 
                         <div class="col-md-12 col-sm-12">

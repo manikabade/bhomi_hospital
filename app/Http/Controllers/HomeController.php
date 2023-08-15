@@ -74,13 +74,18 @@ class HomeController extends Controller
 
 
     }
-    public function filtermedical()
+    public function filtermedical(Request $request)
     {
-        $data=MedicalReport::all();
+        $id =$request->id;
+        $token =$request->token;
+
+        $response =[];
+        $data=Patient::with('medicalReport')->where('id',$id)->where('security_token',$token)->get();
+
         $response['html'] =view('filter_medical',compact('data'))->render();
 
 
-        return response()->json(json_encode('response'));
+        return response()->json(json_encode($response));
     }
     public function ambulance()
 

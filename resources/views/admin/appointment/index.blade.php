@@ -73,8 +73,11 @@
                                             <td>{{$appointment->blood_group}}</td>
                                             <td>{{$appointment->specialist->specialist_name?? 'Specialist' }}</td>
                                             <td>{{$appointment->appointment_date}}</td>
+
                                             <td>{{ $medicalReport->scheduleManagement->time_for_appointment?? 'Time For Appointment' }}</td>
                                             <td>{{$appointment->message}}</td>
+
+                                            <td>{{$appointment->image}}</td>
 
                                             <td>
 
