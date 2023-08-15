@@ -7,6 +7,7 @@ use App\Models\Admin\Appointment;
 use App\Models\Admin\Doctor;
 use App\Models\Admin\MedicalReport;
 use App\Models\Admin\News;
+use App\Models\Admin\Patient;
 use App\Models\Admin\Specialist;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -68,13 +69,18 @@ class HomeController extends Controller
 
 
     }
-    public function filtermedical()
+    public function filtermedical(Request $request)
     {
-        $data=MedicalReport::all();
+        $id =$request->id;
+        $token =$request->token;
+
+        $response =[];
+        $data=Patient::with('medicalReport')->where('id',$id)->where('security_token',$token)->get();
+
         $response['html'] =view('filter_medical',compact('data'))->render();
 
 
-        return response()->json(json_encode('response'));
+        return response()->json(json_encode($response));
     }
 
 }

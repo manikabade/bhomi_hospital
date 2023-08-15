@@ -1,10 +1,10 @@
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 <script src="{{asset('front/js/jquery.js')}}"></script>
 <script src="{{asset('front/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('front/js/jquery.sticky.js')}}"></script>
+{{--<script src="{{asset('front/js/jquery.sticky.js')}}"></script>--}}
 <script src="{{asset('front/js/jquery.stellar.min.js')}}"></script>
 <script src="{{asset('front/js/wow.min.js')}}"></script>
 <script src="{{asset('front/js/smoothscroll.js')}}"></script>

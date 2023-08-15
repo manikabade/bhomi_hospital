@@ -35,7 +35,7 @@ Route::get('/',[\App\Http\Controllers\HomeController::class,'index']) ->name('in
 Route::get('news/{id}',[\App\Http\Controllers\HomeController::class,'newsDetail']) ->name('news.detail');
 Route::post('appointment',[\App\Http\Controllers\HomeController::class,'appointmentForm']) ->name('appointment.store');
 Route::get('medical-report',[\App\Http\Controllers\HomeController::class,'medicalReport'])->name('medical.reports');
-Route::post('filter-medical',[\App\Http\Controllers\HomeController::class,'medicalReport'])->name('filter.medical');
+Route::post('filter-medical',[\App\Http\Controllers\HomeController::class,'filtermedical'])->name('filter.medical');
 
 Auth::routes();
 
