@@ -60,13 +60,24 @@
                                 <option>B-</option>
                             </select>
                         </div>
+
                         <div class="col-md-6 col-sm-6">
                             <label for="select">Select Specialist</label>
-                            <select class="form-control" name="specialist_id">
+                            <select class="form-control" name="specialist_id" id="specialistId" onchange="changeSpecialist(this)">
                                 @forelse($data['_specialist'] as $spec)
                                     <option value="{{$spec->id}}">{{$spec->specialist_name}}</option>
                                 @empty
                                 @endforelse
+                            </select>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <label for="select">Select Doctor</label>
+                            <select class="form-control" name="doctor_id"  id="DoctorSpecialistWise">
+
+{{--                                @forelse($data['_doctors'] as $doc)--}}
+{{--                                    <option value="{{$doc->id}}">{{$doc->doctor_name}}</option>--}}
+{{--                                @empty--}}
+{{--                                @endforelse--}}
                             </select>
                         </div>
 
@@ -111,3 +122,21 @@
         </div>
     </div>
 </section>
+<script>
+  function  changeSpecialist($data){
+       var Specialist_id = $('#specialistId').val();
+        $.ajax({
+            url:'{{route('specialwise.doctor')}}',
+            method:"POST",
+            data:{
+                _token:'{{csrf_token()}}',
+                id:Specialist_id
+            },
+            success:function (response){
+                var data = $.parseJSON(response)
+                $('#DoctorSpecialistWise').html(data.html);
+            }
+
+        })
+    }
+</script>

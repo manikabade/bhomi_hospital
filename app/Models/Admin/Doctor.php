@@ -11,6 +11,7 @@ class Doctor extends BaseModel
 {
     use HasFactory;
     protected $fillable=[
+        'id',
         'doctor_name',
         'email',
         'phone_number',
