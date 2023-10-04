@@ -41,6 +41,7 @@ Route::get('ambulance',[\App\Http\Controllers\HomeController::class,'ambulance']
 Route::post('feedback',[\App\Http\Controllers\HomeController::class,'feedbackForm']) ->name('feedback.store');
 
 Route::post('filter-medical',[\App\Http\Controllers\HomeController::class,'filtermedical'])->name('filter.medical');
+Route::post('specialWiseDoctor',[\App\Http\Controllers\HomeController::class,'SpecialWiseDoctor'])->name('specialwise.doctor');
 
 Auth::routes();
 

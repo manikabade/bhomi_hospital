@@ -87,6 +87,17 @@ class HomeController extends Controller
 
         return response()->json(json_encode($response));
     }
+    public function SpecialWiseDoctor(Request $request)
+    {
+       $Specialist_id = $request->id;
+        $response =[];
+       $data['doctor'] = Doctor::where('specialist_id',$Specialist_id)->active()->pluck('doctor_name','id');
+     ;
+        $response['html'] =view('filter_doctor',compact('data'))->render();
+
+
+        return response()->json(json_encode($response));
+    }
     public function ambulance()
 
     {
