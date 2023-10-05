@@ -38,6 +38,7 @@ class HomeController extends Controller
         $data['_specialist'] = Specialist::all();
         $data['_MedicalReport']=MedicalReport::all();
         $data['_ambulances'] = Ambulance::all();
+
         $data['_ScheduleManagement'] = ScheduleManagement::all();
         return view('welcome',compact('data') );
     }
@@ -107,6 +108,7 @@ class HomeController extends Controller
 
     {
         $data['_ambulances'] = Ambulance::all();
+
         return view('ambulance',compact('data'));
     }
     public function feedbackForm(StoreFeedbackValidation $request)
