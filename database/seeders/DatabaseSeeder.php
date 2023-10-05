@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(SiteSettingSeeder::class);
         $this->call(ScheduleManagementSeeder::class);
+        $this->call(AmbulanceSeeder::class);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

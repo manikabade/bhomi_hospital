@@ -45,12 +45,12 @@
                                 <div class="col-sm-4 invoice-col">
 {{--                                    From--}}
                                     <address>
-                                        Patient Name
+                                        Patient Name   :
                                         <br>
                                        Patient Address<br>
-                                        Email:<br>
-                                        Date of Birth:<br>
-                                        Phone Number:
+                                        Email           :<br>
+                                        Date of Birth   :<br>
+                                        Phone Number    :
                                     </address>
                                 </div>
                                 <!-- /.col -->
@@ -66,11 +66,9 @@
                                 </div>
                                 <!-- /.col -->
                                 <div class="col-sm-4 invoice-col">
-                                    <b>Invoice #007612</b><br>
-                                    <br>
-                                    <b>Order ID:</b> 4F3S8J<br>
-                                    <b>Payment Due:</b> 2/22/2014<br>
-                                    <b>Account:</b> 968-34567
+                                    Patient ID:{{$data['row']->patient_id}}<br>
+                                    Patient Phone Number:{{$data['row']->phone_number}}<br>
+
                                 </div>
                                 <!-- /.col -->
                             </div>

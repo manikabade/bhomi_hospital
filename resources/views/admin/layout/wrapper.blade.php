@@ -25,8 +25,8 @@
                     <div class="card">
                         <div class="card-header border-0">
                             <div class="d-flex justify-content-between">
-                                <h3 class="card-title">Online Store Visitors</h3>
-                                <a href="javascript:void(0);">View Report</a>
+                                <h3 class="card-title">Patient Appointment</h3>
+                                {{-- <a href="javascript:void(0);">View Report</a> --}}
                             </div>
                         </div>
                         <div class="card-body">
