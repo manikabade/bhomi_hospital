@@ -72,12 +72,7 @@
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <label for="select">Select Doctor</label>
-                            <select class="form-control" name="doctor_id"  id="DoctorSpecialistWise">
-
-{{--                                @forelse($data['_doctors'] as $doc)--}}
-{{--                                    <option value="{{$doc->id}}">{{$doc->doctor_name}}</option>--}}
-{{--                                @empty--}}
-{{--                                @endforelse--}}
+                            <select class="form-control" name="doctor_id"  id="DoctorSpecialistWise" onchange="changeTimelist(this)">
                             </select>
                         </div>
 
@@ -91,11 +86,7 @@
 {{--                        </div>--}}
                         <div class="col-md-6 col-sm-6">
                             <label name="schedule_management_id" for="select">Select Time For Appointment</label>
-                            <select class="form-control" name="schedule_management_id">
-                                @forelse($data['_ScheduleManagement'] as $scheduleManagement)
-                                    <option value="{{$scheduleManagement->id}}">{{$scheduleManagement->time_for_appointment}}</option>
-                                @empty
-                                @endforelse
+                            <select class="form-control" name="schedule_management_id"  id="DoctorTimeWise">
                             </select>
                         </div>
 
@@ -133,8 +124,26 @@
                 id:Specialist_id
             },
             success:function (response){
+
                 var data = $.parseJSON(response)
                 $('#DoctorSpecialistWise').html(data.html);
+            }
+
+        })
+    }
+  function  changeTimelist($data){
+       var doctor_id = $('#DoctorSpecialistWise').val();
+        $.ajax({
+            url:'{{route('schedule.doctor')}}',
+            method:"POST",
+            data:{
+                _token:'{{csrf_token()}}',
+                id:doctor_id
+            },
+            success:function (response){
+                console.log(response);
+                var data = $.parseJSON(response)
+                $('#DoctorTimeWise').html(data.html);
             }
 
         })

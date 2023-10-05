@@ -42,6 +42,8 @@ Route::post('feedback',[\App\Http\Controllers\HomeController::class,'feedbackFor
 
 Route::post('filter-medical',[\App\Http\Controllers\HomeController::class,'filtermedical'])->name('filter.medical');
 Route::post('specialWiseDoctor',[\App\Http\Controllers\HomeController::class,'SpecialWiseDoctor'])->name('specialwise.doctor');
+Route::post('scheduleDoctor',[\App\Http\Controllers\HomeController::class,'ScheduleDoctor'])->name('schedule.doctor');
+
 
 Auth::routes();
 

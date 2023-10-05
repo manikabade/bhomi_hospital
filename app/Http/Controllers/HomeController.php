@@ -77,10 +77,10 @@ class HomeController extends Controller
     public function filtermedical(Request $request)
     {
         $id =$request->id;
-        $date =$request->date_of_birth;
+        $string =$request->phone_no;
 
         $response =[];
-        $data=Appointment::with('medicalReport')->where('id',$id)->where('date_of_birth', $date)->get();
+        $data=Appointment::with('medicalReport')->where('id',$id)->where('phone_no', $string)->get();
 
         $response['html'] =view('filter_medical',compact('data'))->render();
 
@@ -89,13 +89,18 @@ class HomeController extends Controller
     }
     public function SpecialWiseDoctor(Request $request)
     {
-       $Specialist_id = $request->id;
+        $Specialist_id = $request->id;
         $response =[];
-       $data['doctor'] = Doctor::where('specialist_id',$Specialist_id)->active()->pluck('doctor_name','id');
-     ;
+        $data['doctor'] = Doctor::where('specialist_id',$Specialist_id)->active()->pluck('doctor_name','id');
         $response['html'] =view('filter_doctor',compact('data'))->render();
-
-
+        return response()->json(json_encode($response));
+    }
+    public function ScheduleDoctor(Request $request)
+    {
+        $doctor_id = $request->id;
+        $response =[];
+        $data['time'] = ScheduleManagement::where('doctor_id',$doctor_id)->active()->pluck('time_for_appointment','id');
+        $response['html'] =view('filter_schedule',compact('data'))->render();
         return response()->json(json_encode($response));
     }
     public function ambulance()

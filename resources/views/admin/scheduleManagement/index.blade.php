@@ -42,7 +42,7 @@
                                     <thead>
                                     <tr class="text-center">
                                         <th>ID</th>
-                                        <th>Specialist</th>
+                                        <th>Doctor</th>
                                         <th>Time For Appointment</th>
                                         <th>Status</th>
                                         <th>Action</th>
@@ -52,7 +52,7 @@
                                     @forelse($scheduleManagements as $scheduleManagement)
                                         <tr>
                                             <td>{{$scheduleManagement->id}}</td>
-                                            <td>{{$scheduleManagement->specialist->specialist_name??'Designation' }}</td>
+                                            <td>{{$scheduleManagement->doctor->doctor_name??'Designation' }}</td>
                                             <td>{{$scheduleManagement->time_for_appointment}}</td>
                                             <td>
                                                 {!! $scheduleManagement->status ?'<span class="badge badge-success">Active</span>':'<span class="badge badge-danger">InActive</span>' !!}
