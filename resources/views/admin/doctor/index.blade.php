@@ -70,7 +70,7 @@
                                             <td>{{$doctor->date_of_birth}}</td>
                                             <td>{{$doctor->hospital_name}}</td>
                                             <td>{{$doctor->hospital_address}}</td>
-                                            <td>{{ $doctor->specialist->specialist_name?? 'Specialist' }}</td>
+                                            <td>{{$doctor->specialist->specialist_name?? 'Specialist' }}</td>
                                             <td>{{$doctor->day_from}}</td>
                                             <td>{{$doctor->day_to}}</td>
                                             <td>{{$doctor->degree}}</td>
