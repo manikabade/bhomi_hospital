@@ -82,23 +82,23 @@
 
                 @csrf
             <div class="form-check mb-4">
-                <input name="feedback" type="radio">
+                <input name="feedback" type="radio" value="v good">
                 <label class="ml-3">Very good</label>
             </div>
             <div class="form-check mb-4">
-                <input name="feedback" type="radio">
+                <input name="feedback" type="radio" value="good">
                 <label class="ml-3">Good</label>
             </div>
             <div class="form-check mb-4">
-                <input name="feedback" type="radio">
+                <input name="feedback" type="radio" value="Mediocre">
                 <label class="ml-3">Mediocre</label>
             </div>
             <div class="form-check mb-4">
-                <input name="feedback" type="radio">
+                <input name="feedback" type="radio" value="Bad">
                 <label class="ml-3">Bad</label>
             </div>
             <div class="form-check mb-4">
-                <input name="feedback" type="radio">
+                <input name="feedback" type="radio"  value="Very Bad">
                 <label class="ml-3">Very Bad</label>
             </div>
                 <!--Text Message-->
