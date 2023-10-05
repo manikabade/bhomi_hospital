@@ -11,13 +11,13 @@ class ScheduleManagement extends BaseModel
 {
     use HasFactory;
     protected $fillable=[
-        'specialist_id',
+        'doctor_id',
         'time_for_appointment',
         'status',
     ];
-    public function specialist(): BelongsTo
+    public function doctor(): BelongsTo
     {
-        return $this->belongsTo(Specialist::class, 'specialist_id');
+        return $this->belongsTo(Doctor::class, 'doctor_id');
     }
 
 }

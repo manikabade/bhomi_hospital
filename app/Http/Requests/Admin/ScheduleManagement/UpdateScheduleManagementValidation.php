@@ -25,7 +25,7 @@ class UpdateScheduleManagementValidation extends FormRequest
     {
         $this->customValidation();
         return [
-            'specialist_id'                => ['required','specialist_id_validation'],
+            'doctor_id'                     => ['required','doctor_id_validation'],
             'time_for_appointment'          => ['required','string'],
             'status'                        => ['nullable', 'boolean'],
         ];

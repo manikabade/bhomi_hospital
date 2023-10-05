@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('doctor_name')->constrained('doctors')->cascadeOnDelete();
+            $table->foreignId('doctor_name')->nullable()->constrained('doctors')->cascadeOnDelete();
             $table->string('patient_name');
             $table->string('email');
             $table->string('phone_number');
@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('patient_address');
             $table->string('blood_group');
             $table->date('appointment_date');
+            $table->foreignId('specialist_id')->constrained('specialists')->cascadeOnDelete();
             $table->foreignId('schedule_management_id')->constrained('schedule_management')->cascadeOnDelete();
             $table->string('image')->nullable();
             $table->longText('message')->nullable();

@@ -3,6 +3,7 @@ namespace App\Traits;
 
 use App\Models\Admin\Appointment;
 use App\Models\Admin\Designation;
+use App\Models\Admin\Doctor;
 use App\Models\Admin\GeneralLabtest;
 use App\Models\Admin\ScheduleManagement;
 use App\Models\Admin\Specialist;
@@ -16,6 +17,7 @@ trait CustomValidationTrait{
     {
         $this->foreignIdValidation('user_id_validation',User::class);
         $this->foreignIdValidation('specialist_id_validation', Specialist::class);
+        $this->foreignIdValidation('doctor_id_validation', Doctor::class);
         $this->foreignIdValidation('appointment_id_validation', Appointment::class);
         $this->foreignIdValidation('designation_id_validation', Designation::class);
         $this->foreignIdValidation('general_labtest_id_validation', GeneralLabtest::class);
@@ -45,6 +47,7 @@ trait CustomValidationTrait{
             'user_id.user_id_validation'                                     => 'Select valid user',
             'specialist_id.specialist_id_validation'                         => 'Select valid Specialist',
             'appointment_id.appointment_id_validation'                       => 'Select valid Appointment',
+            'doctor_id.doctor_id_validation'                                 => 'Select valid Doctor',
             'designation_id.designation_id_validation'                       => 'Select valid Designation',
             'general_labtest_id.general_labtest_id_validation'               => 'Select valid General Test ID',
             'schedule_management_id.schedule_management_id_validation'       => 'Select valid Schedule Management',

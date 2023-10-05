@@ -1,17 +1,17 @@
 <div class="row">
     <div class="col-sm-6">
         <div class="form-group">
-            <label for="specialist_id">Specailist Name</label>
+            <label for="doctor_id">Doctor Name</label>
 
-            <select name="specialist_id" value="{{ old('specialist_id', $scheduleManagement->specialist_id ?? '') }}"
-                    class="form-control @error('specialist_id')is-invalid @enderror" id="specialistId"
-                    placeholder="Specailist Name">
-                <option>--Select Specailist Name--</option>
-                @foreach($scheduleManagements['specialists'] as $specialist)
-                    <option id="specialist_id" value="{{$specialist->id}}" selected="selected">{{$specialist->specialist_name}}</option>
+            <select name="doctor_id" value="{{ old('doctor_id', $scheduleManagement->doctor_id ?? '') }}"
+                    class="form-control @error('doctor_id')is-invalid @enderror" id="doctorId"
+                    placeholder="doctor Name">
+                <option>--Select Doctor Name--</option>
+                @foreach($scheduleManagements['doctors'] as $doc)
+                    <option id="doctor_id" value="{{$doc->id}}" selected="selected">{{$doc->doctor_name}}</option>
                 @endforeach
             </select>
-            @error('specialist_id')
+            @error('doctor_id')
             <span class="error invalid-feedback">
                    {{ $message }}
                 </span>

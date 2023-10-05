@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ScheduleManagement\StoreScheduleManagementValidation;
 use App\Http\Requests\Admin\ScheduleManagement\UpdateScheduleManagementValidation;
+use App\Models\Admin\Doctor;
 use App\Models\Admin\ScheduleManagement;
 use App\Models\Admin\Specialist;
 use Illuminate\Http\Request;
@@ -30,7 +31,7 @@ class ScheduleManagementController extends Controller
      */
     public function create()
     {
-        $scheduleManagements['specialists']=Specialist::select('specialist_name','id')->active()->get();
+        $scheduleManagements['doctors']=Doctor::select('doctor_name','id')->active()->get();
         return view('admin.scheduleManagement.create',compact('scheduleManagements'));
     }
 
@@ -59,7 +60,7 @@ class ScheduleManagementController extends Controller
      */
     public function edit(string $id)
     {
-        $scheduleManagements['specialists']=Specialist::select('specialist_name','id')->active()->get();
+        $scheduleManagements['doctors']=Specialist::select('doctor_name','id')->active()->get();
         $data=[];
         $data['row']=ScheduleManagement::find($id);
         return view('admin.scheduleManagement.edit', compact('data','scheduleManagements'));
