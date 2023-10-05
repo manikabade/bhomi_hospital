@@ -37,9 +37,9 @@
                                 </p>
                                 <p class="ml-auto d-flex flex-column text-right">
                     <span class="text-success">
-                      <i class="fas fa-user-nurse"></i>
+                        <i class="far fa-calendar-alt"></i>
                     </span>
-                                    <span class="text-muted">Since last week</span>
+                                    {{-- <span class="text-muted">Since last week</span> --}}
                                 </p>
                             </div>
 
@@ -51,8 +51,8 @@
                     <div class="card">
                         <div class="card-header border-0">
                             <div class="d-flex justify-content-between">
-                                <h3 class="card-title">Online Store Visitors</h3>
-                                <a href="javascript:void(0);">View Report</a>
+                                <h3 class="card-title">Specialist</h3>
+                                {{-- <a href="javascript:void(0);">View Report</a> --}}
                             </div>
                         </div>
                         <div class="card-body">
@@ -63,9 +63,9 @@
                                 </p>
                                 <p class="ml-auto d-flex flex-column text-right">
                     <span class="text-success">
-                      <i class="fas fa-arrow-up"></i> 12.5%
+                        <i class="fas fa-exchange-alt"></i>
                     </span>
-                                    <span class="text-muted">Since last week</span>
+                                    {{-- <span class="text-muted">Since last week</span> --}}
                                 </p>
                             </div>
 
@@ -80,8 +80,7 @@
                     <div class="card">
                         <div class="card-header border-0">
                             <div class="d-flex justify-content-between">
-                                <h3 class="card-title">Sales</h3>
-                                <a href="javascript:void(0);">View Report</a>
+                                <h3 class="card-title">Doctor</h3>
                             </div>
                         </div>
                         <div class="card-body">
@@ -92,9 +91,9 @@
                                 </p>
                                 <p class="ml-auto d-flex flex-column text-right">
                     <span class="text-success">
-                      <i class="fas fa-arrow-up"></i> 12.5%
+                        <i class="fas fa-user-tie"></i>
                     </span>
-                                    <span class="text-muted">Since last week</span>
+                                    {{-- <span class="text-muted">Since last week</span> --}}
                                 </p>
                             </div>
 
@@ -107,8 +106,8 @@
                     <div class="card">
                         <div class="card-header border-0">
                             <div class="d-flex justify-content-between">
-                                <h3 class="card-title">Sales</h3>
-                                <a href="javascript:void(0);">View Report</a>
+                                <h3 class="card-title">Ambulance</h3>
+                                {{-- <a href="javascript:void(0);">Ambulance</a> --}}
                             </div>
                         </div>
                         <div class="card-body">
@@ -119,9 +118,9 @@
                                 </p>
                                 <p class="ml-auto d-flex flex-column text-right">
                     <span class="text-success">
-                      <i class="fas fa-arrow-up"></i> 12.5%
+                        <i class="fas fa-user-tie"></i>
                     </span>
-                                    <span class="text-muted">Since last week</span>
+                                    {{-- <span class="text-muted">Since last week</span> --}}
                                 </p>
                             </div>
 

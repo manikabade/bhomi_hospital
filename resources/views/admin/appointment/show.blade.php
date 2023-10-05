@@ -66,7 +66,8 @@
                                 </div>
                                 <!-- /.col -->
                                 <div class="col-sm-4 invoice-col">
-                                    Patient ID:{{$data['row']->patient_id}}<br>
+                                    {{-- Patient ID:{{$data['row']-><{{$appointment->id}}}}<br> --}}
+                                    Patient ID:{{$data['row']->id}}<br>
                                     Patient Phone Number:{{$data['row']->phone_number}}<br>
 
                                 </div>
