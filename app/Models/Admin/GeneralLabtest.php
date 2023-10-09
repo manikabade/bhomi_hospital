@@ -19,8 +19,8 @@ class GeneralLabtest extends BaseModel
         'status'
     ];
 
-//    public function patient(): BelongsTo
-//    {
-//        return $this->belongsTo(Patient::class, 'patient_id');
-//    }
+    public function Appointment(): BelongsTo
+   {
+       return $this->belongsTo(Appointment::class, 'appointment_id');
+   }
 }

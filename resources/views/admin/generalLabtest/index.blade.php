@@ -54,7 +54,7 @@
                                     @forelse($generalLabtests as $generalLabtest)
                                         <tr>
                                             <td>{{$generalLabtest->id}}</td>
-                                            <td>{{ $generalLabtest->patient->patient_name?? 'Patient Name' }}</td>
+                                            <td>{{ $generalLabtest->appointment->patient_name?? 'Patient Name' }}</td>
                                             <td>{{ $generalLabtest->general_labtest}}</td>
                                             <td>{{ $generalLabtest->report}}</td>
                                             <td>{!! $generalLabtest->remarks !!}</td>

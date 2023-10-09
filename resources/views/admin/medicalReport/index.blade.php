@@ -55,7 +55,7 @@
                                     @forelse($medicalReports as $medicalReport)
                                         <tr>
                                             <td>{{$medicalReport->id}}</td>
-                                            <td>{{ $medicalReport->patient->patient_name?? 'Patient Name' }}</td>
+                                            <td>{{ $medicalReport->appointment->patient_name?? 'Patient Name' }}</td>
                                             <td>{{ $medicalReport->generalLabtest->general_labtest?? 'General Lab Test' }}</td>
                                             <td>{{ $medicalReport->generalLabtest->report?? 'Report' }}</td>
                                             <td>{{ $medicalReport->generalLabtest->remarks?? 'Remarks' }}</td>

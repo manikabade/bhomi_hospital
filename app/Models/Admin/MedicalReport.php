@@ -18,12 +18,13 @@ class MedicalReport extends BaseModel
         'status'
     ];
 
-    public function appointment(): BelongsTo
+    public function Appointment(): BelongsTo
     {
-        return $this->belongsTo(Appointment::class);
+        return $this->belongsTo(Appointment::class, 'appointment_id');
     }
     public function generallabtest():BelongsTo
     {
         return $this->belongsTo(GeneralLabtest::class,'general_labtest_id');
     }
+
 }
