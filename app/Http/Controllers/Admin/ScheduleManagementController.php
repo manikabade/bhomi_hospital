@@ -60,7 +60,7 @@ class ScheduleManagementController extends Controller
      */
     public function edit(string $id)
     {
-        $scheduleManagements['doctors']=Specialist::select('doctor_name','id')->active()->get();
+        $scheduleManagements['doctors']=Doctor::select('doctor_name','id')->active()->get();
         $data=[];
         $data['row']=ScheduleManagement::find($id);
         return view('admin.scheduleManagement.edit', compact('data','scheduleManagements'));

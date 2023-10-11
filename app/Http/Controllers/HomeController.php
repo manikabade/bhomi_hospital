@@ -78,10 +78,10 @@ class HomeController extends Controller
     public function filtermedical(Request $request)
     {
         $id =$request->id;
-        $string =$request->phone_no;
+        $string =$request->phone_number;
 
         $response =[];
-        $data=Appointment::with('medicalReport')->where('id',$id)->where('phone_no', $string)->get();
+        $data=Appointment::with('medicalReport')->where('id',$id)->where('phone_number', $string)->get();
 
         $response['html'] =view('filter_medical',compact('data'))->render();
 
