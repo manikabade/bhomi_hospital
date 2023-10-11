@@ -34,10 +34,11 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 {!! Form::model($data['row']->id,[
-                                    'url'=>route('admin.scheduleManagement.update',$data['row']->id),
+                                    'url'=>route('admin.scheduleManagement.update',$data['row']),
                                     'enctype'=>'multipart/form-data',
                                     'id'=>'edit-form']
                                    ) !!}
+
 
                                 {{--                                <form action="{{route('scheduleManagement.update',$data['row']->id)}}" method="POST" enctype="multipart/form-data">--}}
                                 {{--                                    <form class="hidden" ></form>--}}

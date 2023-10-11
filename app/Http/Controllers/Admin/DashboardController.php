@@ -6,6 +6,8 @@ use App\Models\Admin\Ambulance;
 use App\Models\Admin\Appointment;
 use App\Models\Admin\Doctor;
 use App\Models\Admin\Specialist;
+use App\Models\Admin\MedicalReport;
+use App\Models\Admin\Feedback;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -30,6 +32,9 @@ class DashboardController extends Controller
         $data['_specialist'] = Specialist::count();
         $data['_doctor'] = Doctor::count();
         $data['_ambulance'] = Ambulance::count();
+        $data['_medicalReport'] = MedicalReport::count();
+        $data['_feedback'] = Feedback::count();
+
 
         return view('admin.index',compact('data'));
     }
