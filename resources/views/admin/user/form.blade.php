@@ -1,8 +1,10 @@
+{{ $errors }}
 <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-6">
         <div class="form-group">
             <label for="name">Name</label>
-            {!! Form::text('name',$data['row']->specialist??null,[
+
+            {!! Form::text('name',$data['row']->name??null,[
                 'class'=> $errors->has('name')?'form-control is-invalid':'form-control',
                     'placeholder'=>'Enter Name',
                ]) !!}
@@ -13,11 +15,11 @@
             @enderror
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-4">
+
+        <div class="col-sm-6">
             <div class="form-group">
                 <label for="email">Email</label>
-                {!! Form::text('email',$data['row']->specialist??null,[
+                {!! Form::text('email',$data['row']->email??null,[
                     'class'=> $errors->has('email')?'form-control is-invalid':'form-control',
                         'placeholder'=>'Enter Email',
                    ]) !!}
@@ -32,17 +34,33 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="password">Password</label>
-                    {!! Form::password('password',$data['row']->specialist??null,[
+                    {!! Form::password('password',$data['row']->password??null,[
                         'class'=> $errors->has('password')?'form-control is-invalid':'form-control',
                             'placeholder'=>'Enter Password',
                        ]) !!}
-                    @error('specialist_name')
+                    @error('password')
                     <span class="error invalid-feedback">
                    {{ $message }}
                 </span>
                     @enderror
                 </div>
             </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="password_confirmation">Password Confirmation</label>
+                        {!! Form::password('Password Confirmation',[
+                            'class'=> $errors->has('password_confirmation')?'form-control is-invalid':'form-control',
+                                'placeholder'=>'Enter your previous password again',
+                           ]) !!}
+                        @error('password_confirmation')
+                        <span class="error invalid-feedback">
+                       {{ $message }}
+                    </span>
+                        @enderror
+                    </div>
+                </div>
+        </div>
 
 {{--    <div class="col-sm-6">--}}
 {{--        <div class="form-group">--}}
