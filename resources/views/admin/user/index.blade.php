@@ -27,7 +27,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">User Information</h3>
+                                <h3 class="card-title">List of User Information</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -43,6 +43,7 @@
                                     <tr class="text-center">
                                         <th>ID</th>
                                          <th>Name</th>
+
                                          <th>Email</th>
                                         <th>Action</th>
                                     </tr>

@@ -24,7 +24,7 @@ class StoreUserValidation extends FormRequest
         return [
             'name'              => ['required','max:20','string'],
             'email'             => ['required','email','unique:users'],
-            'password'          => ['required','confirmed','min:8'],
+            'password'          => ['required','min:8'],
         ];
     }
 }

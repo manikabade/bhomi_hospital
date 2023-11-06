@@ -27,7 +27,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Slider Information</h3>
+                                <h3 class="card-title">List of Slider</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">

@@ -37,7 +37,11 @@ class UserController extends Controller
     public function store(StoreUserValidation $request)
     {
         $data = $request->validated();
-        $user = User::create($request->validated());
+
+        $data['password'] = bcrypt($data['password']);
+
+        $user = User::create($data);
+
 
         return redirect()->route('admin.user.index')
             ->with($user? 'success' :'error', $user? 'Created Successfully' :'Error Creating Data');
