@@ -143,6 +143,24 @@
             @enderror
         </div>
     </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="doctor_id">Doctor</label>
+            <select name="doctor_id" value="{{ old('doctor_id', $appointment->doctor_id ?? '') }}"
+                    class="form-control @error('doctor_id')is-invalid @enderror" id="doctorId"
+                    placeholder="doctor">
+                <option>--Select Doctor--</option>
+                @foreach($appointments['doctors'] as $doctor)
+                    <option id="doctor_id" value="{{$doctor->id}}" selected="selected">{{$doctor->doctor_name}}</option>
+                @endforeach
+            </select>
+            @error('doctor_id')
+            <span class="error invalid-feedback">
+                   {{ $message }}
+                </span>
+            @enderror
+        </div>
+    </div>
 
     <div class="col-sm-6">
         <div class="form-group">

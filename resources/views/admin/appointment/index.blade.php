@@ -51,6 +51,7 @@
                                         <th>Patient Address</th>
                                         <th>Blood Group</th>
                                         <th>Specialist</th>
+                                        <th>Doctor</th>
                                         <th>Appointment Date</th>
                                         <th>Time For Appointment</th>
                                         <th>Additional Message</th>
@@ -72,6 +73,7 @@
                                             <td>{{$appointment->patient_address}}</td>
                                             <td>{{$appointment->blood_group}}</td>
                                             <td>{{$appointment->specialist->specialist_name?? 'Specialist' }}</td>
+                                            <td>{{$appointment->doctor->doctor_name?? 'Doctor' }}</td>
                                             <td>{{$appointment->appointment_date}}</td>
 
                                             <td>{{ $appointment->scheduleManagement->time_for_appointment?? 'Time For Appointment' }}</td>

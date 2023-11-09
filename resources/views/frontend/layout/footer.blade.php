@@ -30,10 +30,10 @@
             <div class="col-md-4 col-sm-4">
                 <div class="footer-thumb">
                     <h4 class="wow fadeInUp" data-wow-delay="0.4s">Contact Info</h4>
-                    <p>Fusce at libero iaculis, venenatis augue quis, pharetra lorem. Curabitur ut dolor eu elit consequat ultricies.</p>
+                    <p>{{$_site_profile->description}}</p>
 
                     <div class="contact-info">
-                        <p><i class="fa fa-phone"></i> 011-660110</p>
+                        <p><i class="fa fa-phone"></i>{{$_site_profile->phone}}</p>
                         <p><i class="fa fa-envelope-o"></i> <a href="#">info@bhomihospital.com</a></p>
                     </div>
                 </div>
@@ -42,9 +42,9 @@
                 <div class="footer-thumb">
                     <div class="opening-hours">
                         <h4 class="wow fadeInUp" data-wow-delay="0.4s">Opening Hours</h4>
-                        <p>Monday - Friday <span>06:00 AM - 10:00 PM</span></p>
+                        <p>Sunday - Friday <span>06:00 AM - 10:00 PM</span></p>
                         <p>Saturday <span>09:00 AM - 08:00 PM</span></p>
-                        <p>Sunday <span>Closed</span></p>
+                        {{-- <p>Sunday <span>Closed</span></p> --}}
                     </div>
 
                     <ul class="social-icon">
@@ -58,13 +58,13 @@
             <div class="col-md-12 col-sm-12 border-top">
                 <div class="col-md-4 col-sm-6">
                     <div class="copyright-text">
-                        <p>Copyright &copy; 2017 Bhomi Hospital{{$_site_profile->copyright}}
+                        <p>Copyright &copy; Bhomi Hospital {{$_site_profile->copyright}}
 
                             | Design : <a href="#" target="">{{$_site_profile->title}}</a></p>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6">
-                    <div class="footer-link">{{$_site_profile->alias}}
+                    <div class="footer-link">
                         <a href="#">Laboratory Tests</a>
                         <a href="#">Departments</a>
                         <a href="#">Insurance Policy</a>
