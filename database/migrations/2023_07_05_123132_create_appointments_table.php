@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('blood_group');
             $table->date('appointment_date');
             $table->foreignId('specialist_id')->constrained('specialists')->cascadeOnDelete();
+            $table->foreignId('doctor_id')->constrained('doctors')->cascadeOnDelete();
             $table->foreignId('schedule_management_id')->constrained('schedule_management')->cascadeOnDelete();
             $table->string('image')->nullable();
             $table->longText('message')->nullable();

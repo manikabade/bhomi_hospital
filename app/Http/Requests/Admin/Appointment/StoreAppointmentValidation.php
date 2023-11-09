@@ -37,6 +37,7 @@ class StoreAppointmentValidation extends FormRequest
             'patient_address'               => ['required','string'],
             'blood_group'                  => ['required','string'],
             'specialist_id'                => ['required','specialist_id_validation'],
+            'doctor_id'                    => ['required','doctor_id_validation'],
 //            'appointment_date'             => ['required','unique:appointments','date'],
             'appointment_date'             => ['required','date'],
 //           'time_for_appointment'        => ['required','unique:appointments','date_format:H:i'],

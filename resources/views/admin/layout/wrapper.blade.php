@@ -63,7 +63,7 @@
                                 </p>
                                 <p class="ml-auto d-flex flex-column text-right">
                     <span class="text-success">
-                        <i class="fas fa-exchange-alt"></i>
+                        <i class="	fas fa-stethoscope"></i>
                     </span>
                                     {{-- <span class="text-muted">Since last week</span> --}}
                                 </p>

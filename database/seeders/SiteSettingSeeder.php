@@ -20,7 +20,7 @@ class SiteSettingSeeder extends Seeder
                 'working_time'          => '10:00AM-5:00PM',
                 'closed_day'            => 'sunday',
                 'closed_time'           => '6:00PM-9:00AM',
-                'description'           => 'doctor appoointment',
+                'description'           => 'Hospital Doctor Appoinment Web Application',
                 'email'                 =>'doctorapp@gmail.com',
                 'phone'                 =>'0123455897',
                 'copyright'             =>'doctor appoointment',

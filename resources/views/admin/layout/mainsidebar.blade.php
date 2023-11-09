@@ -108,7 +108,7 @@
 
                 <li class="nav-item {{request()->is('specialist*')?'menu-open':''}}">
                     <a href="{{route('admin.specialist.index')}}" class="nav-link {{request()->is('specialist*')?'active':''}}">
-                        <i class="fas fa-exchange-alt"></i>
+                        <i class="	fas fa-stethoscope"></i>
                         <p>
                             Specialist
                         </p>
@@ -136,7 +136,7 @@
                 </li>
                 <li class="nav-item {{request()->is('generalLabtest*')?'menu-open':''}}">
                     <a href="{{route('admin.generalLabtest.index')}}" class="nav-link {{request()->is('generalLabtest*')?'active':''}}">
-                        <i class="fas fa-notes-medical"></i>
+                        <i class="fas fa-prescription"></i>
                         <p>
                             General Lab Test
                         </p>
@@ -161,7 +161,7 @@
                 </li>
                 <li class="nav-item {{request()->is('ambulance*')?'menu-open':''}}">
                     <a href="{{route('admin.ambulance.index')}}" class="nav-link {{request()->is('ambulance*')?'active':''}}">
-                        <i class="	fas fa-ambulance"></i>
+                        <i class="fas fa-ambulance"></i>
                         <p>
                            Ambulance
                         </p>
