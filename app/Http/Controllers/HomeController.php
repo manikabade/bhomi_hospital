@@ -101,6 +101,8 @@ class HomeController extends Controller
         $doctor_id = $request->id;
         $response =[];
         $data['time'] = ScheduleManagement::where('doctor_id',$doctor_id)->active()->pluck('time_for_appointment','id');
+
+
         $response['html'] =view('filter_schedule',compact('data'))->render();
         return response()->json(json_encode($response));
     }

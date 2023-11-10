@@ -64,6 +64,7 @@
                         <div class="col-md-6 col-sm-6">
                             <label for="select">Select Specialist</label>
                             <select class="form-control" name="specialist_id" id="specialistId" onchange="changeSpecialist(this)">
+                                <option value="">Select Specialist</option>
                                 @forelse($data['_specialist'] as $spec)
                                     <option value="{{$spec->id}}">{{$spec->specialist_name}}</option>
                                 @empty
@@ -80,13 +81,9 @@
                             <label for="date">Select Date For Appointment</label>
                             <input type="date" name="appointment_date" value="" class="form-control">
                         </div>
-{{--                        <div class="col-md-6 col-sm-6">--}}
-{{--                            <label for="date">Time For Appointment</label>--}}
-{{--                            <input type="time" name="time_for_appointment" value="" class="form-control">--}}
-{{--                        </div>--}}
                         <div class="col-md-6 col-sm-6">
-                            <label name="schedule_management_id" for="select">Select Time For Appointment</label>
-                            <select class="form-control" name="schedule_management_id"  id="DoctorTimeWise">
+                            <label for="select">Select Time For Appointment</label>
+                            <select class="form-control" name="schedule_management_id"  id="DoctorTimeWise" >
                             </select>
                         </div>
 
@@ -127,11 +124,16 @@
 
                 var data = $.parseJSON(response)
                 $('#DoctorSpecialistWise').html(data.html);
+                changeTimelist();
             }
 
         })
     }
-  function  changeTimelist($data){
+
+
+
+
+  function  changeTimelist(){
        var doctor_id = $('#DoctorSpecialistWise').val();
         $.ajax({
             url:'{{route('schedule.doctor')}}',
